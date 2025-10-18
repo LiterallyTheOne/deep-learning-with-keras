@@ -1,0 +1,6 @@
+keras
+
+torch
+torchvision
+
+notebook
