@@ -1,5 +1,5 @@
 ---
-date: '2025-09-18T10:52:00+03:30'
+date: '2025-10-05T10:52:00+03:30'
 draft: false
 title: 'Deep learning with Keras Tutorial'
 description: "A tutorial about Deep learning with Keras"
