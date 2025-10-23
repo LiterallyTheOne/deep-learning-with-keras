@@ -47,3 +47,64 @@ To load and run the codes in **Google Colab**, you can follow these steps.
 Here is an example of loading this tutorial's code:
 
 ![Colab GitHub](colab-github.webp)
+
+## Hello World
+
+Here is a **Hello World** example that we are gradually going to complete it step by step.
+
+```python
+# Setup
+import os
+
+os.environ["KERAS_BACKEND"] = "torch"
+
+# Imports
+from keras.datasets import mnist
+import keras
+from keras import layers
+
+# Prepare the Data
+(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+
+train_images = train_images.reshape((60000, 28 * 28))
+train_images = train_images.astype("float32") / 255
+test_images = test_images.reshape((10000, 28 * 28))
+test_images = test_images.astype("float32") / 255
+
+# Define the model
+model = keras.Sequential([
+    layers.Dense(512, activation="relu"),
+    layers.Dense(10, activation="softmax")
+])
+
+model.compile(optimizer="adam",
+              loss="sparse_categorical_crossentropy",
+              metrics=["accuracy"])
+
+# Train the model
+model.fit(train_images, train_labels, epochs=5, batch_size=128)
+
+# Test the model
+test_loss, test_acc = model.evaluate(test_images, test_labels)
+
+"""
+--------
+output: 
+
+Epoch 1/5
+469/469 ━━━━━━━━━━━━━━━━━━━━ 2s 5ms/step - accuracy: 0.9259 - loss: 0.2622
+Epoch 2/5
+469/469 ━━━━━━━━━━━━━━━━━━━━ 2s 5ms/step - accuracy: 0.9685 - loss: 0.1092
+Epoch 3/5
+469/469 ━━━━━━━━━━━━━━━━━━━━ 2s 5ms/step - accuracy: 0.9797 - loss: 0.0710
+Epoch 4/5
+469/469 ━━━━━━━━━━━━━━━━━━━━ 2s 5ms/step - accuracy: 0.9852 - loss: 0.0515
+Epoch 5/5
+469/469 ━━━━━━━━━━━━━━━━━━━━ 2s 5ms/step - accuracy: 0.9901 - loss: 0.0363
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.9801 - loss: 0.0616
+"""
+
+```
+
+In the code above, we have trained and tested a model on a dataset called **MNIST**.
+At first, we have set up our **Keras**.
