@@ -4,7 +4,7 @@ draft: false
 title: 'Introduction'
 description: "Introduction to Deep Learning with Keras"
 weight: 10
-tags: [ "Deep-learning", "Keras", "Python", "Kaggle" ]
+tags: [ "Deep-learning", "Keras", "Python", "Kaggle", "Google-colab" ]
 image: "intro.webp"
 code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/0-intro/a1-hello-world.ipynb"
 ---
@@ -121,3 +121,58 @@ With the `fit` function, we train our model.
 And finally, we test our model with the evaluate function.
 As you can see in the output, our model's `accuracy` and `loss` are shown in each training step and testing step.
 We have gotten `99%` accuracy on our training data and `98%` accuracy on our test data.
+
+## Kaggle
+
+[Kaggle](https://www.kaggle.com/) is one of the biggest platforms for data science and machine learning enthusiasts.
+It contains a huge number of datasets and a variety of competitions.
+In this tutorial, we are going to select an **Image Classification Dataset** from [Kaggle](https://www.kaggle.com/).
+One of the simplest ways to do that is to go to the **Datasets** section in **Kaggle**,
+and select **Image Classification** tag in the **filters**.
+The dataset that we have to choose should have stored its images in a format like below:
+
+```text
+class_a/
+...a_image_1.jpg
+...a_image_2.jpg
+class_b/
+...b_image_1.jpg
+...b_image_2.jpg
+```
+
+As you can see, in the format above, we have some directories with images.
+Each directory represents a class, and the images in each directory belong to that class.
+
+You can see the format of a **Dataset** by scrolling down to **Data Explorer**.
+For example,
+in [Tom and Jerry Image classification](https://www.kaggle.com/datasets/balabaskar/tom-and-jerry-image-classification)
+We have a format as below:
+
+![Tom and Jerry data format](tom-and-jerry-data-format.webp)
+
+As you can see, we have $4$ directories (*jerry*, *tom*, *tom_jerry_0*, *tom_jerry_1*), and each directory has
+its own images.
+So, we have $4$ classes.
+Another example is
+[Facial Emotion Recognition Dataset](https://www.kaggle.com/datasets/fahadullaha/facial-emotion-recognition-dataset).
+Its data structure is as below:
+
+![Facial Emotion data format](facial-data-format.webp)
+
+As you can see, in the image above, we have $7$ directories
+(*angry*, *disgust*, *fear*, *happy*, *neutral*, *sad*, and *surprise*).
+So, we have $7$ classes.
+
+Now, you should select a dataset with these criteria:
+
+* Image classification
+* Each class has its own directory, and its images are in that directory
+* It's better for our dataset size not to exceed $5$GB.
+
+## Conclusion
+
+In this tutorial, we have introduced **Keras**.
+Then, we explained about **Google Colab** and how to load a notebook from **GitHub**.
+After that, we provided a **Hello World** example that we are going to complete it overtime.
+Finally, we introduced **Kaggle** and explained how to get a suitable **Dataset** from it for this tutorial.
+
