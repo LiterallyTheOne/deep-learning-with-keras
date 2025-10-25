@@ -4,5 +4,6 @@ torch
 torchvision
 
 notebook
+ipywidgets
 
 kagglehub
