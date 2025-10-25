@@ -107,4 +107,17 @@ Epoch 5/5
 ```
 
 In the code above, we have trained and tested a model on a dataset called **MNIST**.
-At first, we have set up our **Keras**.
+In the future, we are going deeper into each step, but for now, here is a simple explanation of each of them.
+At first, we set up the backend of our **Keras**.
+We set that to `torch`, but you can set that to either `tensorflow` or `jax`.
+Then we imported the necessary modules.
+After that, we downloaded
+[MNIST](https://keras.io/api/datasets/mnist/).
+[MNIST](https://keras.io/api/datasets/mnist/) contains of $28 \times 28$ images of handwritten
+digits between $0$ and $9$.
+Then, we normalize our data.
+After that, we defined a simple model and compiled the model with the proper `optimizer`, `loss`, and `metrics`.
+With the `fit` function, we train our model.
+And finally, we test our model with the evaluate function.
+As you can see in the output, our model's `accuracy` and `loss` are shown in each training step and testing step.
+We have gotten `99%` accuracy on our training data and `98%` accuracy on our test data.
