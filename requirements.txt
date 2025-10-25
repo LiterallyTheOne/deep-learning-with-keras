@@ -6,4 +6,6 @@ torchvision
 notebook
 ipywidgets
 
+matplotlib
+
 kagglehub
