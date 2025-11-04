@@ -111,3 +111,49 @@ data_path = Path(path) / "tom_and_jerry/tom_and_jerry"
 Your dataset might have subdirectories like `train`, `validation` and `test`.
 If it was like this put the `train` directory in the `data_path` and store the other ones in their respective directory.
 For example, `val_path` for validation and `test_path` for test.
+
+## ImageFolder
+
+One of the best ways to use an **Image Classification Dataset** in **PyTorch** is by using `ImageFolder`.
+`ImageFolder` loads and assigns labels to a folder that has this structure:
+
+```text
+main_directory/
+...class_a/
+......a_image_1.jpg
+......a_image_2.jpg
+...class_b/
+......b_image_1.jpg
+......b_image_2.jpg
+```
+
+This structure is the structure that we have right now in our `data_path` variable.
+Now, let's load our image folder and show one of the images.
+
+```python
+from torchvision.datasets import ImageFolder
+from matplotlib import pyplot as plt
+
+all_data = ImageFolder(data_path)
+
+for image, label in all_data:
+    plt.figure()
+    plt.imshow(image)
+    print(label)
+    break
+
+"""
+--------
+output: 
+
+0
+"""
+```
+
+![tom-and-jerry-example](tom-and-jerry-example.webp)
+
+As you can see, in the code above, we have loaded our images using `ImageFolder`
+and stored it in a variable called `all_data`.
+After that, we used a for to iterate through `images` and `labels`.
+We showed one image and one label and used `break` to end our loop. 
+As it shown, the label is `0` and you can see the image representing that label in the above.
