@@ -155,5 +155,76 @@ output:
 As you can see, in the code above, we have loaded our images using `ImageFolder`
 and stored it in a variable called `all_data`.
 After that, we used a for to iterate through `images` and `labels`.
-We showed one image and one label and used `break` to end our loop. 
+We showed one image and one label and used `break` to end our loop.
 As it shown, the label is `0` and you can see the image representing that label in the above.
+
+## Transforms
+
+**Transforms** are the way that we can transform our images to the standard that we want.
+For example, when we load our dataset, the images might have different sizes.
+But when we want to train or test our model, we want images to have the same size.
+To make this happen, we can use the `transfroms` module in `torchvison`.
+For example, let's load our dataset without a resize transform with resize transfrom and see the difference.
+
+```python
+from torchvision import transforms
+
+# Without resize transform
+
+all_data = ImageFolder(data_path)
+
+for image, label in all_data:
+    print(f"image size without resize transform: {image.size}")
+    break
+
+# With resize transform
+
+transform = transforms.Resize((90, 160))
+
+all_data = ImageFolder(data_path, transform=transform)
+
+for image, label in all_data:
+    print(f"image size with resize transform: {image.size}")
+    break
+
+"""
+--------
+output: 
+
+image size without resize transform: (1280, 720)
+image size with resize transform: (160, 90)
+"""
+```
+
+As you can see, in the code above, we have successfully changed the size of our images to `(160, 90)`.
+
+Another thing is, when we load our images with `ImageFolder`, it would load them as `PIL` images.
+But when we want to feed our images to our model, we want them to be `tensors`.
+To achieve that, `torchvision` has a `transform` that take an image and turns it into a `tensor`.
+To have resize and transforming to tensor transforms, we can combine them with each other like below:
+
+```python
+trs = transforms.Compose(
+    [
+        transforms.Resize((90, 160)),
+        transforms.ToTensor(),
+    ]
+)
+
+all_data = ImageFolder(data_path, transform=trs)
+
+for image, label in all_data:
+    print(type(image))
+    print(image.shape)
+    break
+
+"""
+--------
+output: 
+
+<class 'torch.Tensor'>
+torch.Size([3, 90, 160])
+"""
+```
+
+As you can see, we have our data in tensor, also the size of it is what we want it.
