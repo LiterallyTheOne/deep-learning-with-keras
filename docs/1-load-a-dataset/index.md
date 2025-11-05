@@ -281,3 +281,57 @@ and $547$ of them are for testing.
 For a **Deep Learning** project, we need these 3 subsets.
 If the **Dataset** provider hasn't split them already, we should split it.
 Otherwise, there is nothing to do.
+
+## DataLoader
+
+Now, we have successfully loaded our dataset into tensors.
+Also, we have train, validation, and test subsets.
+Now, we are ready to feed them into our **model** for training and testing purposes.
+To make this procedure easier, **PyTorch** has a module called `DataLoader`.
+`Dataloader` takes a loaded dataset as its argument and helps us to apply the **Deep learning** techniques.
+One these techniques is called **mini-batch**.
+So, instead of feeding our data to our model one by one, we give it a **batch** of data.
+For example, each time we give it **12** data.
+It helps our model to learn better.
+Another technique is called **shuffling**.
+By **shuffling**, we change the order of data when we want to feed it to the model.
+It helps the model to learn more generally.
+To use `DataLoader` with these 2 techniques, we can use the code below:
+
+```python
+train_loader = DataLoader(train_data, batch_size=12, shuffle=True)
+val_loader = DataLoader(val_data, batch_size=12, shuffle=False)
+test_loader = DataLoader(test_data, batch_size=12, shuffle=False)
+```
+
+In the code above, we have 3 dataloaders for each train, validation, and test subsets.
+Then, we set the `batch_size` to 12 and for the train subset we set the `shuffle` to `true`.
+Now, let's show one batch of training data using `DataLoader`.
+
+```python
+fig, axes = plt.subplots(3, 4)
+
+axes_ravel = axes.ravel()
+
+for images, labels in train_loader:
+    for i, (image, label) in enumerate(zip(images, labels)):
+        axes_ravel[i].imshow(transforms.ToPILImage()(image))
+        axes_ravel[i].set_axis_off()
+        axes_ravel[i].set_title(f"{label}")
+    break
+```
+
+Output:
+
+![batch-tom-and-jerry](batch-tom-and-jerry.webp)
+
+In the code above, we made a subplot with $3$ rows and $4$ columns.
+Then, we `ravel` it to make it a one dimensional array. 
+This helps to use only one index instead of two.
+After that, we iterate thorough our `train_loader`.
+It would give us $12$ images and $12$ labels.
+Then we iterate through those images and labels and show them.
+As you recall, our images were in `tensor` format.
+To bring them back to `PIL` format, we can use a transform called `ToPILImage`.
+As you can see in the output, we have 12 different images with their respective
+label on top of them.
