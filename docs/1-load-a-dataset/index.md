@@ -335,3 +335,14 @@ As you recall, our images were in `tensor` format.
 To bring them back to `PIL` format, we can use a transform called `ToPILImage`.
 As you can see in the output, we have 12 different images with their respective
 label on top of them.
+
+## Your turn
+
+Now, it is your turn.
+First, get your **Kaggle** dataset.
+Then, use the `ImageFolder` to load that dataset and show one of its images.
+After that, if you don't have any of the **train**, **validation**, and **test** subsets,
+make them using `random_split`.
+Then, load those three subsets using `DataLoader` and set a `batch_size` for them.
+Finally, show a batch of your data.
+
