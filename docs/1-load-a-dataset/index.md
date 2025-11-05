@@ -346,3 +346,11 @@ make them using `random_split`.
 Then, load those three subsets using `DataLoader` and set a `batch_size` for them.
 Finally, show a batch of your data.
 
+## Conclusion
+
+In this tutorial, we have learned how to work with a dataset.
+At first, we got an **Image classification** dataset from **Kaggle** using **Kagglehub**.
+Then, we loaded that dataset using `ImageFolder`.
+After that, we learned how to split our data if our dataset doesn't contain
+**train**, **validation**, and **test** subsets.
+Finally, we used `DataLoader` to load our data with **Deep Learning** techniques.
