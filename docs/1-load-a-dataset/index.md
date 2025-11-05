@@ -228,3 +228,56 @@ torch.Size([3, 90, 160])
 ```
 
 As you can see, we have our data in tensor, also the size of it is what we want it.
+
+## Split to train, validation, test
+
+Some of our datasets don't have **train**, **validation**, **test** subsets.
+So, to split our data into these 3 subsets, we can use a function called `random_split`.
+This function, takes a `Dataset`, a sequence of `lengths` to split our data, and an optional `generator`.
+Here is an example on how to use `random_split`:
+
+```python
+import torch
+from torch.utils.data import random_split
+
+g1 = torch.Generator().manual_seed(20)
+train_data, val_data, test_data = random_split(all_data, [0.7, 0.2, 0.1], g1)
+
+print(f"all_data's size: {len(all_data)}")
+print(f"train_data's size: {len(train_data)}")
+print(f"val_data's size: {len(val_data)}")
+print(f"test_data's size: {len(test_data)}")
+
+"""
+--------
+output: 
+
+all_data's size: 5478
+train_data's size: 3835
+val_data's size: 1096
+test_data's size: 547
+"""
+
+```
+
+In the code above, first we defined a `generator` with its seed set to `20`.
+The reason for that is that we want every time that we run our code, have the same `train`, `validation`, and `test` 
+subsets.
+Then, we used `random_split` function.
+for the first argument, we gave it `all_data` that we loaded it before.
+After that, we should give it a list of percentages or lengths.
+If we give it the percentages, sum of them should be equal to $1.0$.
+If we give them the lengths, sum of them should be equal to the length of our data.
+For example `[0.7, 0.2, 0.1]` means to split data into $70%$, $20%$, and $10%$.
+We use that $70%$ for our training.
+We use $20%$ for validation.
+We use $10%$ for test.
+For the third argument, we gave the generator that we created earlier.
+As you can see in the result, we had $5478$ samples, and we split them into train, validation, and test subsets.
+$3835$ of them are for training,
+$1096$ of them are for validation,
+and $547$ of them are for testing.
+
+For a **Deep Learning** project, we need these 3 subsets.
+If the **Dataset** provider hasn't split them already, we should split it.
+Otherwise, there is nothing to do.
