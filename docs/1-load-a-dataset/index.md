@@ -229,7 +229,7 @@ torch.Size([3, 90, 160])
 
 As you can see, we have our data in tensor, also the size of it is what we want it.
 
-## Split to train, validation, test
+## Split into train, validation, test
 
 Some of our datasets don't have **train**, **validation**, **test** subsets.
 So, to split our data into these 3 subsets, we can use a function called `random_split`.
@@ -261,7 +261,7 @@ test_data's size: 547
 ```
 
 In the code above, first we defined a `generator` with its seed set to `20`.
-The reason for that is that we want every time that we run our code, have the same `train`, `validation`, and `test` 
+The reason for that is that we want every time that we run our code, have the same `train`, `validation`, and `test`
 subsets.
 Then, we used `random_split` function.
 for the first argument, we gave it `all_data` that we loaded it before.
@@ -326,7 +326,7 @@ Output:
 ![batch-tom-and-jerry](batch-tom-and-jerry.webp)
 
 In the code above, we made a subplot with $3$ rows and $4$ columns.
-Then, we `ravel` it to make it a one dimensional array. 
+Then, we `ravel` it to make it a one dimensional array.
 This helps to use only one index instead of two.
 After that, we iterate thorough our `train_loader`.
 It would give us $12$ images and $12$ labels.
