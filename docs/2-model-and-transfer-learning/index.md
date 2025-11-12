@@ -92,6 +92,73 @@ model = keras.Sequential(
 )
 ```
 
+## Dense layer
+
+`Dense layer` (fully connected layer) is a layer that
+all the neurons of this layer is connected to the neurons
+of the previous layer.
+To define a `Dense layer` in `Keras` we can simpy use
+`keras.layers.Dense`.
+It requires the number of the neurons.
+Also, we can optionally give it the activation function.
+For example, if we want to have 10 neurons with the `ReLU` activation,
+we can use the code below:
+
+```python
+dense_layer = keras.layers.Dense(10, activation="relu")
+```
+
+> **Source**: https://keras.io/api/layers/core_layers/dense/ 
+
+## Output layer
+
+`Output layer` is the layer that we use to generate our output respect to our problem.
+In **classification** problems we mostly use `Dense layer` with `softmax` as its activation.
+For example, if we have $4$ classes we can define an output layer like below:
+
+```python
+keras.layers.Dense(4, activation="softmax"),
+```
+
+Now, let's add it to our sequential model:
+
+```python
+model = keras.Sequential(
+    [
+        keras.layers.Input(shape=(3, 224, 224)),
+        keras.layers.Dense(4, activation="softmax"),
+    ],
+)
+```
+
+## Flatten layer
+
+`Flatten layer` is simply flatten the output of the previous layer. 
+If we have `5` data that their shape is `(8, 9)`, the output
+of a `flatten layer` would be `5` data with the shape of `(72,)`.
+To use a flatten layer we can use the code below:
+
+```python
+flatten_layer = keras.layers.Flatten()
+```
+
+Since the output of our input layer is `(3, 224, 224)`, we should flatten
+this output to give it to our `dense layer`.
+So let's add our `flatten layer` to our sequential model like this.
+
+```python
+model = keras.Sequential(
+    [
+        keras.layers.Input(shape=(3, 224, 224)),
+        keras.layers.Flatten(),
+        keras.layers.Dense(4, activation="softmax"),
+    ],
+)
+```
+
+> **Source**: https://keras.io/api/layers/reshaping_layers/flatten/ 
+
+
 ## Your turn
 
 ## Conclusion
