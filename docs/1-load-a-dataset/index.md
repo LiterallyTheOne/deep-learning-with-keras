@@ -11,7 +11,7 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 # Load an Image Classification Dataset
 
-# Introduction
+## Introduction
 
 In the previous tutorial, we learned how about **Keras**, **Google Colab**, and **Kaggle**.
 Our task was to select an **Image Classification Dataset** from **Kaggle**.

@@ -11,7 +11,7 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 # Model and Transfer Learning
 
-# Introduction
+## Introduction
 
 ## Your turn
 
