@@ -13,6 +13,85 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Introduction
 
+In the previous tutorial, we have loaded our selected **Kaggle** dataset into **train**, **validation**, and **test**
+subsets.
+Then, we have made a `DataLoader` for each subset.
+The summary of our code looks like below:
+
+```python
+path = kagglehub.dataset_download("balabaskar/tom-and-jerry-image-classification")
+
+data_path = Path(path) / "tom_and_jerry/tom_and_jerry"
+
+trs = transforms.Compose(
+    [
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+    ]
+)
+
+all_data = ImageFolder(data_path, transform=trs)
+
+g1 = torch.Generator().manual_seed(20)
+train_data, val_data, test_data = random_split(all_data, [0.7, 0.2, 0.1], g1)
+
+train_loader = DataLoader(train_data, batch_size=12, shuffle=True)
+val_loader = DataLoader(val_data, batch_size=12, shuffle=False)
+test_loader = DataLoader(test_data, batch_size=12, shuffle=False)
+```
+
+As you might have noticed, we only changed the scale of our `Resize` transform to (224, 224) to 
+make it one of the standard sizes for images in deep learning.
+In this tutorial, we will learn about how to define a model in **Keras**.
+Then, we will improve our results using a technique called **Transfer Learning**
+
+## Model in Keras
+
+There are 3 ways to define a model in **Keras**.
+
+* Sequential
+* Functional
+* Subclassing
+
+
+All these three ways have their own use-cases.
+`Sequential` is one of the cleanest and best ways of defining a model which we will
+learn it in this session.
+As the name suggests, it would take a sequence of layers.
+Then, pass the data through them in order and generate the output.
+To define it in **Keras**, we can use this code.
+
+```python
+keras.Sequential(layers=None)
+```
+
+It requires a list of layers, which we are going to talk about them very shortly.
+
+> **Sources**:
+> * <https://keras.io/api/models/model/>
+> * <https://keras.io/api/models/sequential/>
+> * <https://keras.io/guides/sequential_model/> 
+
+## Input layer
+
+**Input layer** is the layer that we use to tell **Keras** what the shape of our input is.
+For example, for the shape of `(3, 224, 224)`, we can
+use the code below:
+
+```python
+input_layer = keras.layers.Input(shape=(3, 224, 224))
+```
+
+So let's add it to our sequential model: 
+
+```python
+model = keras.Sequential(
+    [
+        keras.layers.Input(shape=(3, 224, 224)),
+    ],
+)
+```
+
 ## Your turn
 
 ## Conclusion
