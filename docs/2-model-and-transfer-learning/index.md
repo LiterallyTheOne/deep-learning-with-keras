@@ -6,7 +6,7 @@ description: "A tutorial about how we can define a model and use transfer learni
 weight: 30
 tags: [ "Deep-learning", "Keras", "PyTorch", "Python", "Kaggle", "Google-colab" ]
 image: "model-and-transfer-learning.webp"
-code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/model-and-transfer-learning/a1-model-and-transfer-learning.ipynb"
+code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/2-model-and-transfer-learning/a1-model-and-transfer-learning.ipynb"
 ---
 
 # Model and Transfer Learning
