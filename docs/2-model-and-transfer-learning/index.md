@@ -62,7 +62,10 @@ Then, pass the data through them in order and generate the output.
 To define it in **Keras**, we can use this code.
 
 ```python
-keras.Sequential(layers=None)
+keras.Sequential(
+    [
+    ],
+)
 ```
 
 It requires a list of layers, which we are going to talk about them very shortly.
@@ -158,6 +161,20 @@ model = keras.Sequential(
 
 > **Source**: https://keras.io/api/layers/reshaping_layers/flatten/ 
 
+## Compile
+
+`compile` is the function that we use to determine our `loss function`, `optimizer` and `metrics`.
+These functions are necessary in the training procedure, and we are going to talk about them individually
+in the next tutorials.
+But for now, we can use the code below to compile our model.
+
+```python
+model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"],
+)
+```
 
 ## Your turn
 
