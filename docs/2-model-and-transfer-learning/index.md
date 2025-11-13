@@ -265,7 +265,29 @@ As you can see int the results, our accuracy and loss is not improving.
 This indicates that our model is not learning correctly.
 Before we fix that, let's learn how to `evaluate` our model on the **test** subset.
 
+## Evaluate the model
 
+To evaluate our model on a given dataset, we can use a function called `evaluate`.
+We can use this function like below:
+
+```python
+loss, accuracy = model.evaluate(test_loader)
+
+print("loss:", loss)
+print("accuracy:", accuracy)
+
+
+"""
+--------
+output: 
+46/46 ━━━━━━━━━━━━━━━━━━━━ 2s 44ms/step - accuracy: 0.3638 - loss: 10.2543
+loss: 10.254292488098145
+accuracy: 0.36380255222320557
+"""
+```
+
+As you can see, we have evaluated our model on our `test_loader`.
+As its output, it would return the loss and the metrics that we have defined in the `compile` function.
 
 
 ## Your turn
