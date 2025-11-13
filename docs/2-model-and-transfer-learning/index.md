@@ -40,7 +40,7 @@ val_loader = DataLoader(val_data, batch_size=12, shuffle=False)
 test_loader = DataLoader(test_data, batch_size=12, shuffle=False)
 ```
 
-As you might have noticed, we only changed the scale of our `Resize` transform to (224, 224) to 
+As you might have noticed, we only changed the scale of our `Resize` transform to (224, 224) to
 make it one of the standard sizes for images in deep learning.
 In this tutorial, we will learn about how to define a model in **Keras**.
 Then, we will improve our results using a technique called **Transfer Learning**
@@ -52,7 +52,6 @@ There are 3 ways to define a model in **Keras**.
 * Sequential
 * Functional
 * Subclassing
-
 
 All these three ways have their own use-cases.
 `Sequential` is one of the cleanest and best ways of defining a model which we will
@@ -71,9 +70,10 @@ model = keras.Sequential(
 It requires a list of layers, which we are going to talk about them very shortly.
 
 > **Sources**:
+>
 > * <https://keras.io/api/models/model/>
 > * <https://keras.io/api/models/sequential/>
-> * <https://keras.io/guides/sequential_model/> 
+> * <https://keras.io/guides/sequential_model/>
 
 ## Input layer
 
@@ -85,7 +85,7 @@ use the code below:
 input_layer = keras.layers.Input(shape=(3, 224, 224))
 ```
 
-So let's add it to our sequential model: 
+So let's add it to our sequential model:
 
 ```python
 model = keras.Sequential(
@@ -100,6 +100,11 @@ model = keras.Sequential(
 `Dense layer` (fully connected layer) is a layer that
 all the neurons of this layer is connected to the neurons
 of the previous layer.
+Here is an example of a `Dense layer` with $4$ neurons which are
+connected to $8$ input neurons.
+
+![Dense Layer Example](model-8-4.webp)
+
 To define a `Dense layer` in `Keras` we can simpy use
 `keras.layers.Dense`.
 It requires the number of the neurons.
@@ -111,7 +116,7 @@ we can use the code below:
 dense_layer = keras.layers.Dense(10, activation="relu")
 ```
 
-> **Source**: https://keras.io/api/layers/core_layers/dense/ 
+> **Source**: <https://keras.io/api/layers/core_layers/dense/>
 
 ## Output layer
 
@@ -136,7 +141,7 @@ model = keras.Sequential(
 
 ## Flatten layer
 
-`Flatten layer` is simply flatten the output of the previous layer. 
+`Flatten layer` is simply flatten the output of the previous layer.
 If we have `5` data that their shape is `(8, 9)`, the output
 of a `flatten layer` would be `5` data with the shape of `(72,)`.
 To use a flatten layer we can use the code below:
@@ -159,7 +164,7 @@ model = keras.Sequential(
 )
 ```
 
-> **Source**: https://keras.io/api/layers/reshaping_layers/flatten/ 
+> **Source**: <https://keras.io/api/layers/reshaping_layers/flatten/>
 
 ## Compile
 
@@ -217,7 +222,6 @@ for images, labels in train_loader:
     print(result.shape)
     break
 
-
 """
 --------
 output: 
@@ -260,12 +264,12 @@ As you can see, we set the number of `epochs` to $5$.
 And, finally we gave our `val_loader` to an argument called `validation_data`.
 So, after each epoch ends, we will have a report on the **validation** subset.
 This function, returns a history that we can use it for plotting and reporting that we are going to learn about that
-in the upcoming tutorials. 
+in the upcoming tutorials.
 As you can see int the results, our accuracy and loss is not improving.
 This indicates that our model is not learning correctly.
 Before we fix that, let's learn how to `evaluate` our model on the **test** subset.
 
-> **Source**: https://keras.io/api/models/model_training_apis/
+> **Source**: <https://keras.io/api/models/model_training_apis/>
 
 ## Evaluate the model
 
@@ -277,7 +281,6 @@ loss, accuracy = model.evaluate(test_loader)
 
 print("loss:", loss)
 print("accuracy:", accuracy)
-
 
 """
 --------
@@ -294,7 +297,7 @@ As its output, it would return the loss and the metrics that we have defined in 
 ## Transfer Learning
 
 **Transfer learning** is one of the most common techniques in **Deep Learning**.
-In this technique we use pretrained model (called base model), on a new dataset with a different purpose.
+In this technique we use pretrained model (called `base_model`), on a new dataset with a different purpose.
 We only use the `base_model` as a feature extractor, and we won't train it.
 Only the layers that we manually add will be trained.
 To get prepared for the transfer learning:
@@ -323,7 +326,7 @@ This removes the `classification` layers, so we can replace them with our own.
 We also set the `input_shape` to `(224, 224, 3)` which is the standard of **ImageNet** images.
 There are some pretrained models available in **Keras** which you can find them in the link below:
 
-> Different models available in **Keras**: https://keras.io/api/applications/
+> Different models available in **Keras**: <https://keras.io/api/applications/>
 
 ### Permute layer
 
@@ -343,7 +346,7 @@ Our input was `(channel, height, width)` (`(3, 224, 224)`),
 we want it to become `(height, width, channel)` (`(224, 224, 3)`).
 So to do so, we should put the **2nd** dimension (height) at the **1st** place.
 Then, put the **3rd** dimension (width) at the **2nd** place.
-And finally, put the **1st** dimension (channel) at the **3rd** place. 
+And finally, put the **1st** dimension (channel) at the **3rd** place.
 The result of our repositioning is like this: `(2, 3, 1)`.
 Now, let's test our layer with the one batch of our images.
 
@@ -364,7 +367,7 @@ As you can see, the output is what we expected.
 
 ### Apply Transfer Learning
 
-Now, let's add a `permute` layer and our `base_model` in the middle our previous model. 
+Now, let's add a `permute` layer and our `base_model` in the middle our previous model.
 The code should look like below:
 
 ```python
@@ -393,7 +396,6 @@ Now, let's see out model's detail.
 
 ```python
 print(model.summary())
-
 
 """
 --------
@@ -444,7 +446,8 @@ Epoch 5/5
 ```
 
 As you can see, we got a better accuracy and loss.
-In each step, our loss, in both training and validation subsets, is decreasing, which means our model is learning correctly.
+In each step, our loss, in both training and validation subsets, is decreasing, which means our model is learning
+correctly.
 For the next step, let's evaluate our model on the **test** subset as well.
 
 ```python
@@ -470,14 +473,14 @@ But, we are going to improve our result much more in the upcoming tutorials.
 
 * Load your dataset in 3 subsets: **train**, **validation**, and **test**.
 * Choose another model other than `MobileNetV2` as your base model.
-  * You can use this link to see the other models
-  * <https://keras.io/api/applications/>
+    * You can use this link to see the other models
+    * <https://keras.io/api/applications/>
 * Set the input layer according to your data
 * Set the output layer according to the number of the classes
 * Use the transfer learning technique correctly
 * Train your model on your train subset
-  * You should fill `validation_data` argument
-  * 5 epochs is enough
+    * You should fill `validation_data` argument
+    * 5 epochs is enough
 * Report your result on your test subset
 
 ## Conclusion
