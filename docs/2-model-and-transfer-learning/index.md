@@ -362,6 +362,114 @@ result shape: torch.Size([12, 224, 224, 3])
 
 As you can see, the output is what we expected.
 
+### Apply Transfer Learning
+
+Now, let's add a `permute` layer and our `base_model` in the middle our previous model. 
+The code should look like below:
+
+```python
+model = keras.Sequential(
+    [
+        layers.Input(shape=(3, 224, 224)),
+        layers.Permute((2, 3, 1)),
+        base_model,
+        layers.Flatten(),
+        layers.Dense(4, activation="softmax"),
+    ]
+)
+```
+
+For the next step, let's `compile` it like before:
+
+```python
+model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"],
+)
+```
+
+Now, let's see out model's detail.
+
+```python
+print(model.summary())
+
+
+"""
+--------
+output: 
+
+Model: "sequential_4"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ permute_1 (Permute)             │ (None, 224, 224, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ mobilenetv2_1.00_224            │ (None, 7, 7, 1280)     │     2,257,984 │
+│ (Functional)                    │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ flatten_1 (Flatten)             │ (None, 62720)          │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 4)              │       250,884 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 2,508,868 (9.57 MB)
+ Trainable params: 250,884 (980.02 KB)
+ Non-trainable params: 2,257,984 (8.61 MB)
+"""
+```
+
+As you can see, now we can see the new layers that we added with the number of parameters that they have.
+Right now, we have $2,508,868$ number of parameters.
+As you can see, because we are not going to train our `base_model`, we only have $250,884$ trainable parameters.
+Now, let's fit our model to see if our results have improved or not.
+
+```python
+history = model.fit(train_loader, epochs=5, validation_data=[val_loader])
+
+"""
+--------
+output: 
+
+Epoch 1/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 40s 125ms/step - accuracy: 0.3252 - loss: 10.4311 - val_accuracy: 0.4133 - val_loss: 8.8533
+Epoch 2/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 42s 133ms/step - accuracy: 0.4383 - loss: 8.7707 - val_accuracy: 0.4434 - val_loss: 8.7051
+Epoch 3/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 46s 145ms/step - accuracy: 0.4634 - loss: 8.3851 - val_accuracy: 0.4653 - val_loss: 8.2721
+Epoch 4/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 45s 142ms/step - accuracy: 0.5014 - loss: 7.8171 - val_accuracy: 0.5046 - val_loss: 7.7342
+Epoch 5/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 47s 146ms/step - accuracy: 0.5291 - loss: 7.4392 - val_accuracy: 0.5301 - val_loss: 7.3093
+"""
+```
+
+As you can see, we got a better accuracy and loss.
+In each step, our loss, in both training and validation subsets, is decreasing, which means our model is learning correctly.
+For the next step, let's evaluate our model on the **test** subset as well.
+
+```python
+loss, accuracy = model.evaluate(test_loader)
+
+print("loss:", loss)
+print("accuracy:", accuracy)
+
+"""
+--------
+output: 
+
+46/46 ━━━━━━━━━━━━━━━━━━━━ 5s 111ms/step - accuracy: 0.4845 - loss: 8.0948
+loss: 8.0947847366333
+accuracy: 0.4844606816768646
+"""
+```
+
+As you can see, the result on our unseen data (test subset) has improved as well.
+But, we are going to improve our result much more in the upcoming tutorials.
+
 ## Your turn
 
 ## Conclusion
+
+In this tutorial, we learned about how to define a model in **Keras** and how to use a very popular **Deep Learning**
+technique, called **Transfer Learning**.
+First, we introduced 
