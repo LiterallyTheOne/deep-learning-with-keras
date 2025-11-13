@@ -265,6 +265,8 @@ As you can see int the results, our accuracy and loss is not improving.
 This indicates that our model is not learning correctly.
 Before we fix that, let's learn how to `evaluate` our model on the **test** subset.
 
+> **Source**: https://keras.io/api/models/model_training_apis/
+
 ## Evaluate the model
 
 To evaluate our model on a given dataset, we can use a function called `evaluate`.
