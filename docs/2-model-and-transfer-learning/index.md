@@ -228,6 +228,46 @@ torch.Size([12, 4])
 
 As expected, our output matches our prediction.
 
+## Train the model
+
+To train the model, we can use a function called `fit`.
+We can use this function like below:
+
+```python
+history = model.fit(train_loader, epochs=5, validation_data=val_loader)
+
+"""
+--------
+output: 
+
+Epoch 1/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 19s 59ms/step - accuracy: 0.3536 - loss: 10.3647 - val_accuracy: 0.3449 - val_loss: 10.5572
+Epoch 2/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 17s 55ms/step - accuracy: 0.3544 - loss: 10.3956 - val_accuracy: 0.3449 - val_loss: 10.5387
+Epoch 3/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 18s 55ms/step - accuracy: 0.3546 - loss: 10.3916 - val_accuracy: 0.3449 - val_loss: 10.5626
+Epoch 4/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 17s 53ms/step - accuracy: 0.3541 - loss: 10.4005 - val_accuracy: 0.3449 - val_loss: 10.5625
+Epoch 5/5
+320/320 ━━━━━━━━━━━━━━━━━━━━ 17s 53ms/step - accuracy: 0.3541 - loss: 10.4005 - val_accuracy: 0.3449 - val_loss: 10.5624
+"""
+```
+
+As you can see, we gave our `train_loader` for its first argument.
+Then, we said how many times we want it to iterate all over our data.
+We have determined that by an argument called `epochs`.
+As you can see, we set the number of `epochs` to $5$.
+And, finally we gave our `val_loader` to an argument called `validation_data`.
+So, after each epoch ends, we will have a report on the **validation** subset.
+This function, returns a history that we can use it for plotting and reporting that we are going to learn about that
+in the upcoming tutorials. 
+As you can see int the results, our accuracy and loss is not improving.
+This indicates that our model is not learning correctly.
+Before we fix that, let's learn how to `evaluate` our model on the **test** subset.
+
+
+
+
 ## Your turn
 
 ## Conclusion
