@@ -468,6 +468,18 @@ But, we are going to improve our result much more in the upcoming tutorials.
 
 ## Your turn
 
+* Load your dataset in 3 subsets: **train**, **validation**, and **test**.
+* Choose another model other than `MobileNetV2` as your base model.
+  * You can use this link to see the other models
+  * <https://keras.io/api/applications/>
+* Set the input layer according to your data
+* Set the output layer according to the number of the classes
+* Use the transfer learning technique correctly
+* Train your model on your train subset
+  * You should fill `validation_data` argument
+  * 5 epochs is enough
+* Report your result on your test subset
+
 ## Conclusion
 
 In this tutorial, we learned about how to define a model in **Keras** and how to use a very popular **Deep Learning**
