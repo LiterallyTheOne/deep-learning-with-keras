@@ -291,6 +291,76 @@ accuracy: 0.36380255222320557
 As you can see, we have evaluated our model on our `test_loader`.
 As its output, it would return the loss and the metrics that we have defined in the `compile` function.
 
+## Transfer Learning
+
+**Transfer learning** is one of the most common techniques in **Deep Learning**.
+In this technique we use pretrained model (called base model), on a new dataset with a different purpose.
+We only use the `base_model` as a feature extractor, and we won't train it.
+Only the layers that we manually add will be trained.
+To get prepared for the transfer learning:
+
+* Load the model without its classification layers
+* Put the training of the base model to `False`
+* Change the input layer according to the dataset input
+* Change the output layer according to the number of classes
+
+For example, let's load a model called `MobileNetV2` as our `base_model`, and put its `trainable` to `False`.
+
+```python
+from keras.applications import MobileNetV2
+
+base_model = MobileNetV2(include_top=False, input_shape=(224, 224, 3))
+
+base_model.trainable = False
+```
+
+In the code above, we have used `keras.applications` to import `MobileNetV2`.
+`MobileNetV2` is one of the most used and most famous models used for **Transfer Learning**.
+It is light and has a really great generalization.
+The default dataset that `MobileNetV2` is trained on is **ImageNet**.
+As you can see, we put the `include_top` to `False`.
+This removes the `classification` layers, so we can replace them with our own.
+We also set the `input_shape` to `(224, 224, 3)` which is the standard of **ImageNet** images.
+There are some pretrained models available in **Keras** which you can find them in the link below:
+
+> Different models available in **Keras**: https://keras.io/api/applications/
+
+### Permute layer
+
+As you might have noticed, our images has a shape like `(3, 224, 224)`.
+But our `base_model` accepts shape of `(224, 224, 3)`.
+So, to fix that problem, we can use a layer called `permute`.
+This layer, helps us to reshape our images to the standard our `base_model` has.
+Let's define a `permute` layer that changes the input in a way that we want.
+
+```python
+p = layers.Permute((2, 3, 1))
+```
+
+As you can see, in the code above, we have defined a permute layer.
+As its argument, we gave it the new position that we want our output to be.
+Our input was `(channel, height, width)` (`(3, 224, 224)`),
+we want it to become `(height, width, channel)` (`(224, 224, 3)`).
+So to do so, we should put the **2nd** dimension (height) at the **1st** place.
+Then, put the **3rd** dimension (width) at the **2nd** place.
+And finally, put the **1st** dimension (channel) at the **3rd** place. 
+The result of our repositioning is like this: `(2, 3, 1)`.
+Now, let's test our layer with the one batch of our images.
+
+```python
+for images, labels in train_loader:
+    print(f"result shape: {p(images).shape}")
+    break
+
+"""
+--------
+output: 
+
+result shape: torch.Size([12, 224, 224, 3])
+"""
+```
+
+As you can see, the output is what we expected.
 
 ## Your turn
 
