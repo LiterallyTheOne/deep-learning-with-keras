@@ -176,6 +176,58 @@ model.compile(
 )
 ```
 
+## Model Details
+
+So far, we have successfully created a model and defined its **optimizer**, **loss function**, and **metrics**.
+Now, let's learn about how to see the model's details.
+To do so, we can use a function called `summary`.
+
+```python
+print(model.summary())
+
+"""
+--------
+output: 
+
+Model: "sequential_3"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ flatten (Flatten)               │ (None, 150528)         │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 4)              │       602,116 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 602,116 (2.30 MB)
+ Trainable params: 602,116 (2.30 MB)
+ Non-trainable params: 0 (0.00 B)
+"""
+```
+
+As you can see, with `summary`, we can see the layers, total parameters, trainable parameters, and
+non-trainable parameters.
+For our model, after we `flatten` the input ($3 \times 224 \times 224 = 150528$) we have $150528$ neurons.
+When we fully connect it to $4$ neurons, we would have ($150528 \times 4 = 602112$) weights and $4$ biases to train.
+
+Now, let's give one batch of our data to the model, and see the output.
+Our `batch_size` was $12$, and we have four classes, so we expect that our output shape to be `[12, 4]`.
+
+```python
+for images, labels in train_loader:
+    result = model(images)
+    print(result.shape)
+    break
+
+
+"""
+--------
+output: 
+
+torch.Size([12, 4])
+"""
+```
+
+As expected, our output matches our prediction.
+
 ## Your turn
 
 ## Conclusion
