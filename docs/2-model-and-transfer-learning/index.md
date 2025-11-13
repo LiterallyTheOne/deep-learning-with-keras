@@ -62,7 +62,7 @@ Then, pass the data through them in order and generate the output.
 To define it in **Keras**, we can use this code.
 
 ```python
-keras.Sequential(
+model = keras.Sequential(
     [
     ],
 )
