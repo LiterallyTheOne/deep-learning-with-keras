@@ -94,9 +94,8 @@ print("loss:", loss)
 print("accuracy:", accuracy)
 ```
 
-
-As you can see, in the code above, when we were training our model using `.fit` function, we were storing its result in a variable
-called `history`.
+As you can see, in the code above, when we were training our model using `.fit` function,
+we were storing its result in a variable called `history`.
 In this tutorial, we will learn more about `history` and how to plot its results.
 Also, we will learn about a very powerful tool for plotting and seeing the results during training,
 called **TensorBoard**.
