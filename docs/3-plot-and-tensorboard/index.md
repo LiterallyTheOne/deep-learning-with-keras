@@ -13,6 +13,13 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Introduction
 
+In the previous tutorial, we learned about **model** and **Transfer Learning**.
+As you might recall, when we were training our model using `.fit` function, we were storing its result in a variable
+called `history`.
+In this tutorial, we will learn more about `history` and how to plot its results.
+Also, we will learn about a very powerful tool for plotting and seeing the results during training,
+called **TensorBoard**.
+
 ## Your turn
 
 ## Conclusion
