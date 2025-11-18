@@ -152,11 +152,13 @@ So, let's plot the `loss` and `accuracy` separately.
 
 ```python
 plt.figure()
+plt.title("loss")
 plt.plot(history.history["loss"])
 plt.plot(history.history["val_loss"])
 plt.legend(["loss", "val_loss"])
 
 plt.figure()
+plt.title("accuracy")
 plt.plot(history.history["accuracy"])
 plt.plot(history.history["val_accuracy"])
 plt.legend(["accuracy", "val_accuracy"])
@@ -171,6 +173,10 @@ But for the validation subset, we had some ups and downs which is natural.
 We are going to learn how to analyze them in the upcoming tutorials.
 
 > Source: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History
+
+## TensorBoard
+
+
 
 ## Your turn
 
