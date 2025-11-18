@@ -100,6 +100,78 @@ In this tutorial, we will learn more about `history` and how to plot its results
 Also, we will learn about a very powerful tool for plotting and seeing the results during training,
 called **TensorBoard**.
 
+## Plot the training history
+
+First, let's print the history to see what is inside it.
+
+```python
+print(history)
+
+"""
+--------
+output: 
+
+<keras.src.callbacks.history.History object at 0x12de7e300>
+"""
+```
+
+As you can see, we have a `Callback` with the name of `History`.
+The `History` object, saves the information about the training parameters, in an attribute called `params`.
+
+```python
+print(history.params)
+
+"""
+--------
+output: 
+
+{'verbose': 'auto', 'epochs': 5, 'steps': 320}
+"""
+```
+
+As you can see, we have trained our model for $5$ epochs and each epoch contained $320$ steps (mini-batches).
+Also, `History` saves the `loss` and the given `metrics` (in our case: `Accuracy`) as well,
+in an attribute called `history`.
+
+```python
+print(history.history)
+
+"""
+--------
+output: 
+
+{'accuracy': [0.41955670714378357, 0.5418513417243958, 0.5614081025123596, 0.5921773314476013, 0.6033898591995239],
+ 'loss': [8.836509704589844, 7.081783294677734, 6.813899517059326, 6.346843242645264, 6.222221374511719],
+ 'val_accuracy': [0.540145993232727, 0.5246350169181824, 0.5729926824569702, 0.6076642274856567, 0.5894160866737366],
+ 'val_loss': [7.019584655761719, 7.262048721313477, 6.537136554718018, 6.103211879730225, 6.454712390899658]}
+"""
+```
+
+As shown, now we can access to `loss` and `accuracy` of **training** and **validation** in each epoch.
+So, let's plot the `loss` and `accuracy` separately.
+
+```python
+plt.figure()
+plt.plot(history.history["loss"])
+plt.plot(history.history["val_loss"])
+plt.legend(["loss", "val_loss"])
+
+plt.figure()
+plt.plot(history.history["accuracy"])
+plt.plot(history.history["val_accuracy"])
+plt.legend(["accuracy", "val_accuracy"])
+```
+
+![Loss plot](loss-plot.webp)
+![Accuracy plot](accuracy-plot.webp)
+
+As you can see, we have trained our model for $5$ epochs.
+For training subset, our `loss` and `accuracy` were improving (blue line).
+But for the validation subset, we had some ups and downs which is natural.
+We are going to learn how to analyze them in the upcoming tutorials.
+
+> Source: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History
+
 ## Your turn
 
 ## Conclusion
