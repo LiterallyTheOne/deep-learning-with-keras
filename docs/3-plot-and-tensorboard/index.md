@@ -176,7 +176,59 @@ We are going to learn how to analyze them in the upcoming tutorials.
 
 ## TensorBoard
 
+If we want to plot our results using `History callback` from the output of the `fit` module,
+we have to wait until the training is done.
+So, we can't have live plots and data to analyze our training procedure.
+One of the ways that we can solve this problem is by logging the data during training in our hard drive.
+Then, use a **UI** to load that log and analyze it.
+That's exactly what **TensorBoard** does.
 
+**TensorBoard** is an open-source visualization toolkit for machine learning experiments.
+It has its own logging standard and visualization dashboard.
+Anytime that we log something in our code, we can see that log on the dashboard.
+**TensorBoard** is widely used and is one of the standard ways to log and share our training procedure.
+So, now we have two steps to take:
+
+* Use our standard **TensorBoard** logging when we `fit` our model
+* Open the **UI Dashboard** and see the result
+
+### Add TensorBoard to the code
+
+To add **TensorBoard** logging in our training procedure, **Keras** has provided us a **CallBack**.
+We can create a new object of that **CallBack** using the code below:
+
+```python
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+```
+
+In the code above, at first we have created the destination path that we want to store our logs.
+The standard that we used is putting all the logs in the parent directory called `logs/fit` and
+name each of them based on the time that they are created.
+For example: `logs/fit/20251118-092033`.
+Then we created a new `TensorBoard` object with passing two arguments to it.
+`log_dir` is the destination path that our logs would be stored which we filled it with
+the directory name that we have created earlier.
+`histogram_freq` is the frequency that we want to log our **weight histograms**.
+**Weight histograms** sometimes become super handy when we want to analyze how our model is trained.
+
+Now, it's time to give our `TensorBoard Callback` to the `fit` function.
+To do so, we can use an argument called `callbacks` in the `fit` function.
+This argument takes a list of **Callbacks**.
+So, the only thing that we should do, is to add our `tensorboard_callback` to the `callbacks` like below:
+
+```python
+history = model.fit(
+    train_loader,
+    epochs=5,
+    validation_data=val_loader,
+    callbacks=[tensorboard_callback],
+)
+```
+
+Now, when we fit our model, the training logs would be saved at `logs/fit`.
+
+> **Source**: https://keras.io/api/callbacks/tensorboard/
 
 ## Your turn
 
