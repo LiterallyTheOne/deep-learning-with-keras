@@ -230,6 +230,47 @@ Now, when we fit our model, the training logs would be saved at `logs/fit`.
 
 > **Source**: https://keras.io/api/callbacks/tensorboard/
 
+### TensorBoard dashboard
+
+Now, let's open up the **TensorBoard dashboard**.
+The code to do that is like below:
+
+```shell
+tensorboard --logdir logs/fit
+
+
+"""
+--------
+output: 
+
+Serving TensorBoard on localhost; to expose to the network, use a proxy or pass --bind_all
+TensorBoard 2.20.0 at http://localhost:6006/ (Press CTRL+C to quit)
+"""
+```
+
+This code would make a local host, and you can access its dashboard though web browser.
+Here is an example of a dashboard in a web browser.
+
+![tensorboard dashboard](tensorboard-dashboard.webp)
+
+If you want to load the **TensorBoard dashboard** in your **Jupyter notebook**,
+you should first load it with the code below:
+
+```python
+%load_ext
+tensorboard
+```
+
+And then run the loading code:
+
+```python
+%tensorboard - -logdir
+logs
+```
+
+The output of the respective cell would work interactively, and you can access the dashboard.
+Now, let's get deeper into different tabs in `TensorBoard dashboard`.
+
 ## Your turn
 
 ## Conclusion
