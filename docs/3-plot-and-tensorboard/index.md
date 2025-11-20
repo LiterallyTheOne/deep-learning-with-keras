@@ -199,18 +199,16 @@ We can create a new object of that **CallBack** using the code below:
 
 ```python
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir)
 ```
 
 In the code above, at first we have created the destination path that we want to store our logs.
 The standard that we used is putting all the logs in the parent directory called `logs/fit` and
 name each of them based on the time that they are created.
 For example: `logs/fit/20251118-092033`.
-Then we created a new `TensorBoard` object with passing two arguments to it.
+Then we created a new `TensorBoard` object with passing one argument to it.
 `log_dir` is the destination path that our logs would be stored which we filled it with
 the directory name that we have created earlier.
-`histogram_freq` is the frequency that we want to log our **weight histograms**.
-**Weight histograms** sometimes become super handy when we want to analyze how our model is trained.
 
 Now, it's time to give our `TensorBoard Callback` to the `fit` function.
 To do so, we can use an argument called `callbacks` in the `fit` function.
@@ -269,7 +267,8 @@ logs
 ```
 
 The output of the respective cell would work interactively, and you can access the dashboard.
-Now, let's get deeper into the most important tabs in `TensorBoard dashboard`.
+Now, let's get deeper into the **Scalars tab** in `TensorBoard dashboard`.
+We are going to learn about the other tabs in the future tutorials.
 
 ## Scalars tab
 
