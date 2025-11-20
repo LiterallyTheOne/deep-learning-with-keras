@@ -269,7 +269,7 @@ logs
 ```
 
 The output of the respective cell would work interactively, and you can access the dashboard.
-Now, let's get deeper into different tabs in `TensorBoard dashboard`.
+Now, let's get deeper into the most important tabs in `TensorBoard dashboard`.
 
 ## Scalars tab
 
