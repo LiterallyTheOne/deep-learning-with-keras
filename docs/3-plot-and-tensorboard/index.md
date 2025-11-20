@@ -271,6 +271,27 @@ logs
 The output of the respective cell would work interactively, and you can access the dashboard.
 Now, let's get deeper into different tabs in `TensorBoard dashboard`.
 
+## Scalars tab
+
+**Scalars tab** contains the plots of our loss and metrics.
+
+![scalars tab](scalar-tab.webp)
+
+As you can see, in the image above, we have 5 different sections:
+
+* **epoch_accuracy**
+* **epoch_learning_rate**
+* **epoch_loss**
+* **evaluation_accuracy_vs_iteration**
+* **evaluation_loss_vs_iteration**
+
+These sections can be opened to see the validation and train plots.
+In the left panel, we can select the run that we want.
+We might have trained our model multiple times, we can select the respective
+run to see the results.
+Also, for each run, results of train and validation are being stored separately.
+We can choose one of them to see its result.
+
 ## Your turn
 
 ## Conclusion
