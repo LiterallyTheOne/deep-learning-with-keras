@@ -270,7 +270,7 @@ The output of the respective cell would work interactively, and you can access t
 Now, let's get deeper into the **Scalars tab** in `TensorBoard dashboard`.
 We are going to learn about the other tabs in the future tutorials.
 
-## Scalars tab
+### Scalars tab
 
 **Scalars tab** contains the plots of our loss and metrics.
 
