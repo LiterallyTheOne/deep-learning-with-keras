@@ -293,4 +293,18 @@ We can choose one of them to see its result.
 
 ## Your turn
 
+* Draw accuracy and loss plots
+    * You should include train and validation on each one of them
+* Add Tensorboard to your training procedure
+
 ## Conclusion
+
+In this tutorial, we learned about plotting our training procedure.
+First, we explained the `History` object that `.fit` function returns.
+Then, we used its data to plot our results.
+Second, we address that to get the `History` object, we should wait  
+for the `.fit` function to finishes its job.
+To see the result's online during training, we learned that we can use
+`Tensorboard`.
+After that, we added tensorboard to our training procedure.
+Finally, we learned about the **TensorBoard dashboard** and **Scalars tab**.
