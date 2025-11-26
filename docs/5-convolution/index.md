@@ -13,7 +13,7 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Introduction
 
-## Convolution
+## Convolution operation
 
 Convolution is an operation in which we slide a smaller matrix (kernel) over a bigger matrix and calculate the
 weighted sum.
