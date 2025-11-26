@@ -195,6 +195,51 @@ $$
 * P: Padding
 * D: Dilation
 
+## Convolution layer
+
+Earlier, we learned how `convolution` works.
+Now, let's talk about how to use it in **Keras**.
+We can define a `Convolution layer` in **Keras** like below:
+
+```python
+from keras.layers import Conv2D
+
+conv_1 = Conv2D(
+    filters=64,
+    kernel_size=(3, 3),
+    padding="same",
+    strides=(1, 1),
+    dilation_rate=(1, 1),
+)
+
+```
+
+In the code above, we have defined a `convolution layer`.
+For its output, it creates `64` channels.
+Also, it has a `3x3` kernel.
+As you can see, we have control over `stride`, `padding`, and `dilation`.
+Now, let's feed our loaded images to `conv_1`, to see what happens.
+
+```python
+for images, labels in train_loader:
+    images = Permute((2, 3, 1))(images)
+    result = conv_1(images)
+    print(f"images shape: {images.shape}")
+    print(f"result shape: {result.shape}")
+    break
+
+"""
+--------
+output: 
+images shape: torch.Size([12, 224, 224, 3])
+result shape: torch.Size([12, 224, 224, 64])
+"""
+```
+
+The results above show that the width and height of our inputs and outputs are the same.
+The reason behind that is that we put `padding` to `same`.
+Also, we have 64 channels for the results as expected.
+
 ## Your turn
 
 ## Conclusion
