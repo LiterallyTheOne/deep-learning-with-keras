@@ -240,6 +240,8 @@ The results above show that the width and height of our inputs and outputs are t
 The reason behind that is that we put `padding` to `same`.
 Also, we have 64 channels for the results as expected.
 
+## Activation layers
+
 ## Pooling layers
 
 ## LeNet
