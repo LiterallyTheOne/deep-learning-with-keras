@@ -6,7 +6,7 @@ description: "A tutorial about the inside of some basic convolutional models"
 weight: 60
 tags: [ "Deep-learning", "Keras", "PyTorch", "Python", "Kaggle", "Google-colab", "matplotlib", "Tensorboard" ]
 image: "convolutional-models.webp"
-code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/6-convolutional-models"
+code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/tree/main/src/5-convolutional-models"
 ---
 
 # Convolutional models
