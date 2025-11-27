@@ -645,9 +645,18 @@ model = Sequential(
 
 ## LeNet
 
+Now that we have learned about the layers that are mostly used in **Convolutional Neural Networks**,
+let's build some of them from scratch.
+One of the most effective and simple models is **LeNet**.
+**LeNet** is designed to recognize the handwritten digits on grayscale $28x28$ images.
+
 ![LeNet](LeNet.webp)
 
-> **Source**: https://en.wikipedia.org/wiki/LeNet#/media/File:Comparison_image_neural_networks.svg
+> **Image Source**: https://en.wikipedia.org/wiki/LeNet#/media/File:Comparison_image_neural_networks.svg
+
+Here is the
+[link](https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/main/src/5-convolutional-models/a6_LeNet.ipynb)
+to the implementation of **LeNet** part by part in **Keras**.
 
 ## AlexNet
 
