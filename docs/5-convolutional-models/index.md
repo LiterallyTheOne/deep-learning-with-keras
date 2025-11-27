@@ -649,6 +649,7 @@ Now that we have learned about the layers that are mostly used in **Convolutiona
 let's build some of them from scratch.
 One of the most effective and simple models is **LeNet**.
 **LeNet** is designed to recognize the handwritten digits on grayscale $28x28$ images.
+Here is the architecture of **LeNet**.
 
 ![LeNet](LeNet.webp)
 
