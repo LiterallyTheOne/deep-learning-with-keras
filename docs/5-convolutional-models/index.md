@@ -244,7 +244,26 @@ The reason behind that is that we put `padding` to `same`.
 Also, we have 64 channels for the results as expected.
 When we train a convolution layer, this kernels would be trained.
 
-## Pooling layers
+## Pooling
+
+**Pooling** is a downsampling operation.
+It is mostly being used after feature extraction layers.
+For example, after a series of **convolution layers**.
+It is basically reduces the spatial dimensions (height, width) while keeping
+the important information.
+
+We are using a pooling layer mostly because:
+
+* Compress information
+* Avoid overfitting (which we are going to discuss in the upcoming tutorials)
+* Achieving Translation Invariance
+* Increase Receptive Field
+
+The operation of **Pooling** is pretty similar to **Convolution**.  
+We have a specific **Kernel** that we are sliding it over a bigger matrix.
+The only difference between them, is that this **Kernel** is not trainable.
+Let's get more familiar with two important **Pooling layers**,
+**Average Pooling** and ** **Max pooling**.
 
 ### Average Pooling
 
