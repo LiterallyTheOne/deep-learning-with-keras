@@ -535,7 +535,87 @@ result
 
 As you can see, the maximum of each channel is calculated
 
-## Activation layers
+## Activation Function
+
+In a Neural Networks, **Activation functions** removes the linearity of the connections.
+Without an **Activation Function**, the model is only a linear transformation.
+It helps the model to learn complex relationships.
+In **Keras**, we can give an activation function to the layer.
+This was the method that we were using in the previous tutorials.
+
+We have so many different **Activation functions**.
+Here are one of the most used ones.
+
+### ReLU
+
+`ReLU` stands for `Rectified Linear Unit`.
+It is one of the most used activation functions in **Deep Learning**.
+The logic behind that is pretty simple.
+It only changes the negative values to `0`.
+Here is its formula:
+
+$$
+ReLU(x) = max(0, x)
+$$
+
+![ReLU](relu.webp)
+
+You can access the **ReLU** function like below:
+
+```python
+from keras.activations import relu
+```
+
+### Tanh
+
+**Hyperbolic Tangent function** is another super useful **Activation Functions**.
+It maps its input into the range of $(-1, 1)$
+
+$$
+\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+$$
+
+![Tanh](tanh.webp)
+
+You can access the **Tanh** function like below:
+
+```python
+from keras.activations import tanh
+```
+
+### Sigmoid
+
+**Sigmoid** is another function that is mostly used in binary classification.
+It would map the input into the range of $(0, 1)$.
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+
+![Sigmoid](sigmoid.webp)
+
+You can access the **Sigmoid** function like below:
+
+```python
+from keras.activations import sigmoid
+
+```
+
+### Softmax
+
+**Softmax** is mostly used as the **Activation function** of the final layer of classification.
+It would change the logits to the probability.
+
+$$
+\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}
+$$
+
+You can access the **Softmax** function like below:
+
+```python
+from keras.activations import softmax
+
+```
 
 ## Dropout layer
 
