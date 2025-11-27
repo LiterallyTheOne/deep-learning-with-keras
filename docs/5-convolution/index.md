@@ -248,7 +248,15 @@ Also, we have 64 channels for the results as expected.
 
 ## LeNet
 
+![LeNet](LeNet.webp)
+
+> **Source**: https://en.wikipedia.org/wiki/LeNet#/media/File:Comparison_image_neural_networks.svg
+
 ## AlexNet
+
+![AlexNet](AlexNet.webp)
+
+> **Source**: https://en.wikipedia.org/wiki/LeNet#/media/File:Comparison_image_neural_networks.svg
 
 ## Your turn
 
