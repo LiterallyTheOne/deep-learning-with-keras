@@ -681,3 +681,14 @@ to the implementation of **LeNet** part by part in **Keras**.
 Now, test the **AlexNet** on your dataset.
 
 ## Conclusion
+
+In this tutorial, we learned the basic layers used in a **CNN**.
+First, we started with the **Convolution**.
+We explained how it works alongside with its 3 arguments: **stride**, **padding**, **dilation**.
+Second, we learned about **Pooling layers**.
+We discussed the reason behind it, and we explained about **Average Pooling** and **Max Pooling**.
+Third, we learned about **Activation functions**.
+We used to work with **ReLU** and **SoftMax**.
+Now, we are introduced to two other **Activation Functions**, **Tanh** and **Sigmoid**.
+Forth, we explained about the **Dropout layer** and why it is important.
+Finally, we implemented two important **CNNs**, **LeNet** and **AlexNet**, from scratch.
