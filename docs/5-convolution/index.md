@@ -244,6 +244,8 @@ Also, we have 64 channels for the results as expected.
 
 ## Activation layers
 
+## Dropout layer
+
 ## LeNet
 
 ## AlexNet
