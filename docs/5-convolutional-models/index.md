@@ -619,6 +619,30 @@ from keras.activations import softmax
 
 ## Dropout layer
 
+**Dropout layer** is a technique that is used to avoid overfitting and achieve regularization.
+It accepts a percentage as its input.
+In each training step, it would set that percentage of neurons to zero.
+This helps the other neurons to get included in the training procedure.
+
+Here is an example of the usage of the **Dropout layer**.
+
+```python
+from keras import Sequential
+from keras.layers import Dropout, Dense, Input
+
+model = Sequential(
+    [
+        Input(shape=(1024,)),
+        Dropout(0.2),
+        Dense(512, activation="relu"),
+        Dropout(0.2),
+        Dense(128, activation="relu"),
+        Dropout(0.2),
+        Dense(10, activation="relu"),
+    ]
+)
+```
+
 ## LeNet
 
 ![LeNet](LeNet.webp)
