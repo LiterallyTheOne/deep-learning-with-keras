@@ -9,11 +9,14 @@ image: "convolutional-models.webp"
 code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/6-convolutional-models"
 ---
 
-# Convolution
+# Convolutional models
 
 ## Introduction
 
-## Convolution operation
+In the previous tutorial, we learned about different loss functions and optimizers.
+In this tutorial, we will learn more about convolutional models that we were using in the previous tutorials.
+
+## Convolution
 
 Convolution is an operation in which we slide a smaller matrix (kernel) over a bigger matrix and calculate the
 weighted sum.
