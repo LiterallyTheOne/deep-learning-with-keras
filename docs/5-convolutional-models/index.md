@@ -660,9 +660,20 @@ to the implementation of **LeNet** part by part in **Keras**.
 
 ## AlexNet
 
+**AlexNet** is another important **Convolutional Neural Network** that is being recognized as the beginning
+of the **Deep Learning**.
+It is officially designed to the classification task in a dataset called **ImageNet**.
+**ImageNet** is a huge dataset with $1000$ classes.
+The images of this dataset is in **RGB** format and the shape of them are $224x224$.
+Here is the architecture of **AlexNet**.
+
 ![AlexNet](AlexNet.webp)
 
 > **Source**: https://en.wikipedia.org/wiki/LeNet#/media/File:Comparison_image_neural_networks.svg
+
+Here is the
+[link](https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/main/src/5-convolutional-models/a7_AlexNet.ipynb)
+to the implementation of **LeNet** part by part in **Keras**.
 
 ## Your turn
 
