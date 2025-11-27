@@ -49,10 +49,14 @@ for i in range(padded_image.shape[0]):
         ax_in.text(j, i, str(padded_image[i, j]), ha="center", va="center")
 
 # Rectangle showing kernel
-rect = patches.Rectangle((0, 0),
-                         dilated_kernel_size[1] - 1e-6,
-                         dilated_kernel_size[0] - 1e-6,
-                         linewidth=2, edgecolor="red", facecolor="none")
+rect = patches.Rectangle(
+    (0, 0),
+    dilated_kernel_size[1] - 1e-6,
+    dilated_kernel_size[0] - 1e-6,
+    linewidth=2,
+    edgecolor="red",
+    facecolor="none",
+)
 ax_in.add_patch(rect)
 
 # Output feature map
@@ -63,11 +67,15 @@ ax_out.grid(True)
 im_out = ax_out.imshow(output, cmap="Greens", vmin=-10, vmax=10)
 
 # Text annotations for output
-texts_out = [[ax_out.text(j, i, "", ha="center", va="center") for j in range(out_w)] for i in range(out_h)]
+texts_out = [
+    [ax_out.text(j, i, "", ha="center", va="center") for j in range(out_w)]
+    for i in range(out_h)
+]
 
 # Rectangle to highlight output cell
-rect_out = patches.Rectangle((0 - 0.5, 0 - 0.5), 1, 1,
-                             linewidth=2, edgecolor="red", facecolor="none")
+rect_out = patches.Rectangle(
+    (0 - 0.5, 0 - 0.5), 1, 1, linewidth=2, edgecolor="red", facecolor="none"
+)
 ax_out.add_patch(rect_out)
 
 
@@ -78,8 +86,10 @@ def conv_at(i, j):
     """Compute convolution value at output[i,j]."""
     y = i * stride
     x = j * stride
-    region = padded_image[y:y + dilated_kernel_size[0]:dilation,
-    x:x + dilated_kernel_size[1]:dilation]
+    region = padded_image[
+        y : y + dilated_kernel_size[0] : dilation,
+        x : x + dilated_kernel_size[1] : dilation,
+    ]
     return np.sum(region * kernel)
 
 
