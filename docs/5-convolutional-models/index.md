@@ -1,12 +1,12 @@
 ---
 date: '2025-11-26T08:13:00+03:30'
 draft: false
-title: 'Convolution'
-description: "A tutorial about the convolutional layer"
+title: 'Convolutional models'
+description: "A tutorial about the inside of some basic convolutional models"
 weight: 60
 tags: [ "Deep-learning", "Keras", "PyTorch", "Python", "Kaggle", "Google-colab", "matplotlib", "Tensorboard" ]
 image: "convolution.webp"
-code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/5-generalization"
+code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/6-convolutional-models"
 ---
 
 # Convolution
