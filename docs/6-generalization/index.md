@@ -13,8 +13,6 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Introduction
 
-## Dropout layer
-
 ## Augmentation
 
 ## Your turn
