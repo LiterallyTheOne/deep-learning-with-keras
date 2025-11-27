@@ -242,6 +242,10 @@ Also, we have 64 channels for the results as expected.
 
 ## Pooling layers
 
+### Average Pooling
+
+### Max pooling
+
 ## Activation layers
 
 ## Dropout layer
