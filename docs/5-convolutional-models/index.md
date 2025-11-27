@@ -409,6 +409,132 @@ Also, you can see that the average of each channel is calculated.
 
 ### Max pooling
 
+**Max Pooling** calculate the maximum of each window.
+Here is an example of **Max Pooling**.
+
+```python
+from keras.layers import MaxPool2D
+
+max_pooling_layer = MaxPool2D((2, 2), strides=1)
+
+a = np.arange(32, dtype=float).reshape(1, 4, 4, 2)
+
+result = max_pooling_layer(a).cpu().numpy()
+
+print("differences in shapes")
+print(a.shape)
+print(result.shape)
+print("-" * 20)
+
+print("1st channel")
+print(a[0, :, :, 0])
+print("-" * 20)
+
+print("second channel")
+print(a[0, :, :, 1])
+print("-" * 20)
+
+print("result of the 1st channel")
+print(result[0, :, :, 0])
+print("-" * 20)
+
+print("result of the 2nd channel")
+print(result[0, :, :, 1])
+print("-" * 20)
+
+"""
+--------
+output: 
+
+differences in shapes
+(1, 4, 4, 2)
+(1, 3, 3, 2)
+--------------------
+1st channel
+[[ 0.  2.  4.  6.]
+ [ 8. 10. 12. 14.]
+ [16. 18. 20. 22.]
+ [24. 26. 28. 30.]]
+--------------------
+second channel
+[[ 1.  3.  5.  7.]
+ [ 9. 11. 13. 15.]
+ [17. 19. 21. 23.]
+ [25. 27. 29. 31.]]
+--------------------
+result of the 1st channel
+[[10. 12. 14.]
+ [18. 20. 22.]
+ [26. 28. 30.]]
+--------------------
+result of the 2nd channel
+[[11. 13. 15.]
+ [19. 21. 23.]
+ [27. 29. 31.]]
+--------------------
+"""
+```
+
+As you can see, in the code above, the syntax of **Max Pooling** is pretty similar to **Average Pooling**.
+The **Kernel** of our **Max Pooling** layer is also $2x2$ so the output shape would be the same as
+**Average pooling**.
+As you can see, in the output, the maximum of each window is calculated.
+
+We have **Global Maximum Pooling as well**.
+Here is an example:
+
+```python
+max_pooling_layer = GlobalMaxPooling2D()
+
+a = np.arange(32, dtype=float).reshape(1, 4, 4, 2)
+
+result = max_pooling_layer(a).cpu().numpy()
+
+print("difference in shapes")
+print(a.shape)
+print(result.shape)
+print("-" * 20)
+
+print("1st channel")
+print(a[0, :, :, 0])
+print("-" * 20)
+
+print("second channel")
+print(a[0, :, :, 1])
+print("-" * 20)
+
+print("result")
+print(result)
+print("-" * 20)
+
+"""
+--------
+output: 
+
+difference in shapes
+(1, 4, 4, 2)
+(1, 2)
+--------------------
+1st channel
+[[ 0.  2.  4.  6.]
+ [ 8. 10. 12. 14.]
+ [16. 18. 20. 22.]
+ [24. 26. 28. 30.]]
+--------------------
+second channel
+[[ 1.  3.  5.  7.]
+ [ 9. 11. 13. 15.]
+ [17. 19. 21. 23.]
+ [25. 27. 29. 31.]]
+--------------------
+result
+[[30. 31.]]
+--------------------
+"""
+```
+
+As you can see, the maximum of each channel is calculated
+
 ## Activation layers
 
 ## Dropout layer
