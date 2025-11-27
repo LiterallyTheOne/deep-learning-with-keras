@@ -267,6 +267,83 @@ Let's get more familiar with two important **Pooling layers**,
 
 ### Average Pooling
 
+**Average pooling** calculates the average of each window.
+Here is an example of defining and using an **Average pooling layer** in **Keras**.
+
+```python
+from keras.layers import AveragePooling2D
+
+avg_pooing_layer = AveragePooling2D((2, 2), strides=1)
+
+a = np.arange(32, dtype=float).reshape(1, 4, 4, 2)
+
+result = avg_pooing_layer(a).cpu().numpy()
+
+print("differences in shapes")
+print(a.shape)
+print(result.shape)
+print("-" * 20)
+
+print("1st channel")
+print(a[0, :, :, 0])
+print("-" * 20)
+
+print("second channel")
+print(a[0, :, :, 1])
+print("-" * 20)
+
+print("result of the 1st channel")
+print(result[0, :, :, 0])
+print("-" * 20)
+
+print("result of the 2nd channel")
+print(result[0, :, :, 1])
+print("-" * 20)
+
+"""
+--------
+output: 
+
+differences in shapes
+(1, 4, 4, 2)
+(1, 3, 3, 2)
+--------------------
+1st channel
+[[ 0.  2.  4.  6.]
+ [ 8. 10. 12. 14.]
+ [16. 18. 20. 22.]
+ [24. 26. 28. 30.]]
+--------------------
+second channel
+[[ 1.  3.  5.  7.]
+ [ 9. 11. 13. 15.]
+ [17. 19. 21. 23.]
+ [25. 27. 29. 31.]]
+--------------------
+result of the 1st channel
+[[ 5.  7.  9.]
+ [13. 15. 17.]
+ [21. 23. 25.]]
+--------------------
+result of the 2nd channel
+[[ 6.  8. 10.]
+ [14. 16. 18.]
+ [22. 24. 26.]]
+--------------------
+
+"""
+
+```
+
+As you can see, in the code above, we have defined an **Average Pooling Layer** with
+the `pool_size` of `(2, 2)` and made sure that our `stride` is set to 1.
+After that, we made an input matrix with the size of `4x4` that has 1 batch and 2 channels.
+The values of this matrix is filled by the numbers in range of $[0, 31]$.
+Then, we fed that input to our **Average pooling Layer** and printed the results.
+As you can see, in the result section, we can see the differences of the input and the output.
+First, let's examine the different shapes.
+
+
 ### Max pooling
 
 ## Activation layers
