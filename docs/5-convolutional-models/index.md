@@ -242,6 +242,7 @@ result shape: torch.Size([12, 224, 224, 64])
 The results above show that the width and height of our inputs and outputs are the same.
 The reason behind that is that we put `padding` to `same`.
 Also, we have 64 channels for the results as expected.
+When we train a convolution layer, this kernels would be trained.
 
 ## Pooling layers
 
