@@ -15,8 +15,6 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Dropout layer
 
-## Global Average Pooling
-
 ## Augmentation
 
 ## Your turn
