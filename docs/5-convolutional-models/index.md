@@ -678,4 +678,6 @@ to the implementation of **LeNet** part by part in **Keras**.
 
 ## Your turn
 
+Now, test the **AlexNet** on your dataset.
+
 ## Conclusion
