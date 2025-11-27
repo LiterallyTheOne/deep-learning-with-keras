@@ -332,7 +332,6 @@ result of the 2nd channel
 --------------------
 
 """
-
 ```
 
 As you can see, in the code above, we have defined an **Average Pooling Layer** with
@@ -342,7 +341,71 @@ The values of this matrix is filled by the numbers in range of $[0, 31]$.
 Then, we fed that input to our **Average pooling Layer** and printed the results.
 As you can see, in the result section, we can see the differences of the input and the output.
 First, let's examine the different shapes.
+The original shape is `(1, 4, 4, 2)` but the output's shape is `(1, 3, 3, 2)`.
+The reason behind that is that we can fit $3$ $2x2$ window on a $4x4$ matrix.
+As you can see, we have printed each channel and the output is the average over the $2x2$ window.
 
+There is another common **Pooling layer** is being used as the last layer of our convolutional model
+(Instead of **Flatten**) is **Global Average Pooling**.
+This layer, calculates the average of the whole channel.
+Here is an example of **Global Average Pooling**.
+
+```python
+from keras.layers import GlobalAveragePooling2D
+
+avg_pooing_layer = GlobalAveragePooling2D()
+
+a = np.arange(32, dtype=float).reshape(1, 4, 4, 2)
+
+result = avg_pooing_layer(a).cpu().numpy()
+
+print("difference in shapes")
+print(a.shape)
+print(result.shape)
+print("-" * 20)
+
+print("1st channel")
+print(a[0, :, :, 0])
+print("-" * 20)
+
+print("second channel")
+print(a[0, :, :, 1])
+print("-" * 20)
+
+print("result")
+print(result)
+print("-" * 20)
+
+"""
+--------
+output: 
+
+difference in shapes
+(1, 4, 4, 2)
+(1, 2)
+--------------------
+1st channel
+[[ 0.  2.  4.  6.]
+ [ 8. 10. 12. 14.]
+ [16. 18. 20. 22.]
+ [24. 26. 28. 30.]]
+--------------------
+second channel
+[[ 1.  3.  5.  7.]
+ [ 9. 11. 13. 15.]
+ [17. 19. 21. 23.]
+ [25. 27. 29. 31.]]
+--------------------
+result
+[[15. 16.]]
+--------------------
+"""
+```
+
+As you can see, in the code above, `GlobalAveragePooling2D` doesn't require a **Kernel**.
+Because, it would apply the average on the whole channel.
+As it shown in the outputs, the result shape is `(1, 2)` (batch_size and channel).
+Also, you can see that the average of each channel is calculated.
 
 ### Max pooling
 
