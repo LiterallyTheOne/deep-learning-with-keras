@@ -93,7 +93,7 @@ $$
 Now, let's talk about 3 important things in **Convolution**.
 If you want to experience different convolutions with different options,
 you can use this code:
-[conv_gif.py](https://github.com/LiterallyTheOne/Pytorch_Tutorial/blob/main/helpers/conv_gif.py).
+[conv_gif.py](https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/src/5-generalization/conv_gif.py).
 
 ### Stride
 
