@@ -23,6 +23,20 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Augmentation
 
+## RandomFlip
+
+## RandomRotation
+
+## RandomZoom
+
+## RandomTranslation
+
+## RandomContrast
+
+## RandomBrightness
+
+## RandomCrop
+
 ## Your turn
 
 ## Conclusion
