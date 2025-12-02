@@ -15,6 +15,8 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Preprocessing
 
+> [Preprocessing layers in Keras](https://keras.io/api/layers/preprocessing_layers/)
+
 ## Resizing
 
 ## Rescaling
