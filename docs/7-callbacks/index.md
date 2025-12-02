@@ -1,5 +1,5 @@
 ---
-date: '2025-11-26T08:13:00+03:30'
+date: '2025-11-26T08:33:00+03:30'
 draft: true
 title: 'Callbacks'
 description: "A tutorial about the callbacks in Keras, including Early Stopping and Model Checkpoint"
