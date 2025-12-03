@@ -20,7 +20,39 @@ In this tutorial, we are going to learn about **preprocessing** and **augmentati
 
 ## Preprocessing
 
+**Data preprocessing** is a set of steps that we take before feeding the data to our model.
+These steps help us to have clean, consistent, and meaningful inputs.
+Also, they help the model to have a better accuracy, convergence speed, and generalization.
+When we were loading our dataset, we used two transformations: `Resize` and `ToTensor`.
+These two functions were related to the **PyTorch** and we were using them on the `ImageFolder`.
+Now, we are going to learn about some preprocessing layers in **Keras**.
+
 ## Resizing
+
+`Resizing` layer, is a layer that resizes its input to match the given size.
+Here is an example that we resized an image with the size of $1920 \times 1080$
+to $224 \times 224$.
+
+```python
+from keras.layers import Resizing
+
+resizing_layer = Resizing(224, 224)
+
+input_image = np.random.randint(0, 256, (1, 1920, 1080, 3))
+
+result_image = resizing_layer(input_image)
+
+print(f"Input's shape: {input_image.shape}")
+print(f"Result's shape: {result_image.shape}")
+
+"""
+--------
+output: 
+
+Input's shape: (1, 1920, 1080, 3)
+Result's shape: torch.Size([1, 224, 224, 3])
+"""
+```
 
 ## Rescaling
 
