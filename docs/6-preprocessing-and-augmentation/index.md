@@ -97,6 +97,22 @@ You can see the output of all the examples in
 
 ## RandomFlip
 
+`RandomFlip`, technically, has a $50%$ chance to flip its input in the given mode.
+Modes can be:
+
+* `horizontal`
+* `vertical`
+* `horizontal_and_vertical`
+
+Here is an example that only flips horizontally:
+
+```python
+from keras.layers import RandomFlip
+
+random_flip_layer = RandomFlip("horizontal")
+
+```
+
 ## RandomRotation
 
 ## RandomZoom
