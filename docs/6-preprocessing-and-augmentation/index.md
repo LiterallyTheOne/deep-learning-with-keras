@@ -29,7 +29,7 @@ Now, we are going to learn about some preprocessing layers in **Keras**.
 
 ## Resizing
 
-`Resizing` layer, is a layer that resizes its input to match the given size.
+`Resizing` layer is a layer that resizes its input to match the given size.
 Here is an example that we resized an image with the size of $1920 \times 1080$
 to $224 \times 224$.
 
@@ -55,6 +55,34 @@ Result's shape: torch.Size([1, 224, 224, 3])
 ```
 
 ## Rescaling
+
+`Rescaling` layer is a layer that rescales its input to the given scale.
+In the example below, we have made a `Rescaling` layer with the scale of $\frac{1}{255}$.
+
+```python
+from keras.layers import Rescaling
+
+rescaling_layer = Rescaling(1 / 255)
+
+input_image = np.random.randint(0, 256, (1, 224, 224, 3))
+
+result_image = rescaling_layer(input_image)
+
+print(f"Input's max: {input_image.max()}")
+print(f"Input's min: {input_image.min()}")
+print(f"Result's max: {result_image.max()}")
+print(f"Result's min: {result_image.min()}")
+
+"""
+--------
+output: 
+
+Input's max: 255
+Input's min: 0
+Result's max: 1.0
+Result's min: 0.0
+"""
+```
 
 ## Augmentation
 
