@@ -86,6 +86,13 @@ Result's min: 0.0
 
 ## Augmentation
 
+**Data Augmentation** is a technique in machine learning that artificially expands our training dataset by applying
+different transformations.
+**Data Augmentation** is extremely useful when we don't have enough data or our data is not balanced.
+It helps us with the generalization and prevents the model from overfitting.
+We have so many different **augmentation** techniques for different use-cases.
+Let's get to know how to use some of them in **Keras**.
+
 ## RandomFlip
 
 ## RandomRotation
