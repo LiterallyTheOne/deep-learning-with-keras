@@ -16,9 +16,9 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 In the previous tutorial, we have learned about the basic layers used in CNNs.
 In this tutorial, we are going to learn about **preprocessing** and **augmentation** layers in **Keras**.
 
-## Preprocessing
-
 > [Preprocessing layers in Keras](https://keras.io/api/layers/preprocessing_layers/)
+
+## Preprocessing
 
 ## Resizing
 
