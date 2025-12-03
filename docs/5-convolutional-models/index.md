@@ -21,7 +21,7 @@ In this tutorial, we will learn more about convolutional models that we were usi
 Convolution is an operation in which we slide a smaller matrix (kernel) over a bigger matrix and calculate the
 weighted sum.
 Let's explain its concepts using an example.
-In our example, we have a `6x6` image, and our kernel is `3x3`, like below:
+In our example, we have a $6 \times 6$ image, and our kernel is $3 \times 3$, like below:
 
 ```python
 image_size = (6, 6)
@@ -58,7 +58,7 @@ If we apply convolution, we are going to have a result like below:
 
 ![conv](conv.gif)
 
-As you can see in the GIF above, the kernel is being slid on our image, and we are getting the average of each `3x3`
+As you can see in the GIF above, the kernel is being slid on our image, and we are getting the average of each $ 3 \times 3$
 block as an output.
 Let's calculate the first block.
 
@@ -76,8 +76,8 @@ $$
 $$
 
 As you can see, the calculations have the same results as the code.
-Also, our input's shape is `6x6`, but our output's shape is `4x4`.
-The reason behind that is our kernel is `3x3`.
+Also, our input's shape is $ 6 \times 6$, but our output's shape is $ 4 \times 4$.
+The reason behind that is our kernel is $ 3 \times 3$.
 So, we can only slide it `4` times on our input.
 For now, we can calculate it like below:
 
@@ -128,14 +128,14 @@ $$
 Padding is a technique that we use to fill the surrounding of the input with some values.
 The most common value for padding is `0`, which is called `zero padding`.
 The main reason for that is to prevent our image from being shrunk after some convolutions.
-In the previous example, you saw that the image with `6x6` becomes `4x4`.
+In the previous example, you saw that the image with $ 6 \times 6$ becomes $ 4 \times 4$.
 If the input shape and output shape are the same, it is called `zero-padding`.
 
 ![conv pad 1](conv_pad_1.gif)
 
 As you can see in the GIF above, we have added zeros to the surroundings of
 our input.
-As a result, our output has the same shape as our input (`6x6`).
+As a result, our output has the same shape as our input ($ 6 \times 6$).
 We can calculate the output size as below:
 
 $$
@@ -180,7 +180,7 @@ $$
 
 ![conv dilation 2](conv_dilation_2.gif)
 
-As you can see in the GIF above, we have `dilation=2`, so our kernel becomes `5x5`.
+As you can see in the GIF above, we have `dilation=2`, so our kernel becomes $ 5 \times 5$.
 We can calculate the output shape with the formula below:
 
 $$
@@ -219,7 +219,7 @@ conv_1 = Conv2D(
 
 In the code above, we have defined a `convolution layer`.
 For its output, it creates `64` channels.
-Also, it has a `3x3` kernel.
+Also, it has a $ 3 \times 3$ kernel.
 As you can see, we have control over `stride`, `padding`, and `dilation`.
 Now, let's feed our loaded images to `conv_1`, to see what happens.
 
@@ -336,14 +336,14 @@ result of the 2nd channel
 
 As you can see, in the code above, we have defined an **Average Pooling Layer** with
 the `pool_size` of `(2, 2)` and made sure that our `stride` is set to 1.
-After that, we made an input matrix with the size of `4x4` that has 1 batch and 2 channels.
+After that, we made an input matrix with the size of $ 4 \times 4$ that has 1 batch and 2 channels.
 The values of this matrix is filled by the numbers in range of $[0, 31]$.
 Then, we fed that input to our **Average pooling Layer** and printed the results.
 As you can see, in the result section, we can see the differences of the input and the output.
 First, let's examine the different shapes.
 The original shape is `(1, 4, 4, 2)` but the output's shape is `(1, 3, 3, 2)`.
-The reason behind that is that we can fit $3$ $2x2$ window on a $4x4$ matrix.
-As you can see, we have printed each channel and the output is the average over the $2x2$ window.
+The reason behind that is that we can fit $3$ $2 \times 2$ window on a $4 \times 4$ matrix.
+As you can see, we have printed each channel and the output is the average over the $2 \times 2$ window.
 
 There is another common **Pooling layer** is being used as the last layer of our convolutional model
 (Instead of **Flatten**) is **Global Average Pooling**.
@@ -476,7 +476,7 @@ result of the 2nd channel
 ```
 
 As you can see, in the code above, the syntax of **Max Pooling** is pretty similar to **Average Pooling**.
-The **Kernel** of our **Max Pooling** layer is also $2x2$ so the output shape would be the same as
+The **Kernel** of our **Max Pooling** layer is also $2 \times 2$ so the output shape would be the same as
 **Average pooling**.
 As you can see, in the output, the maximum of each window is calculated.
 
@@ -648,7 +648,7 @@ model = Sequential(
 Now that we have learned about the layers that are mostly used in **Convolutional Neural Networks**,
 let's build some of them from scratch.
 One of the most effective and simple models is **LeNet**.
-**LeNet** is designed to recognize the handwritten digits on grayscale $28x28$ images.
+**LeNet** is designed to recognize the handwritten digits on grayscale $28 \times 28$ images.
 Here is the architecture of **LeNet**.
 
 ![LeNet](LeNet.webp)
@@ -665,7 +665,7 @@ to the implementation of **LeNet** part by part in **Keras**.
 of the **Deep Learning**.
 It is officially designed to the classification task in a dataset called **ImageNet**.
 **ImageNet** is a huge dataset with $1000$ classes.
-The images of this dataset is in **RGB** format and the shape of them are $224x224$.
+The images of this dataset is in **RGB** format and the shape of them are $224 \times 224$.
 Here is the architecture of **AlexNet**.
 
 ![AlexNet](AlexNet.webp)
