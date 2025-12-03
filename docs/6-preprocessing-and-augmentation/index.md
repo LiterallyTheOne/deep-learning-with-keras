@@ -92,6 +92,8 @@ different transformations.
 It helps us with the generalization and prevents the model from overfitting.
 We have so many different **augmentation** techniques for different use-cases.
 Let's get to know how to use some of them in **Keras**.
+You can see the output of all the examples in
+[this notebook](https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/main/src/6-preprocessing-and-augmentation/a2-augmentation.ipynb)
 
 ## RandomFlip
 
