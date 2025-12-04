@@ -157,6 +157,15 @@ random_translation_layer = RandomTranslation(0.2, 0.2)
 
 ## RandomContrast
 
+`RandomContrast` changes the contrast respect to the given `factor`.
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomContrast
+
+random_contrast_layer = RandomContrast(0.4)
+```
+
 ## RandomBrightness
 
 ## RandomCrop
