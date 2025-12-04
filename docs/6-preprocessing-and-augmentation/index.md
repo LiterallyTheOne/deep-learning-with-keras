@@ -133,6 +133,16 @@ random_rotation_layer = RandomRotation(0.2)
 
 ## RandomZoom
 
+`RandomZoom`, zooms in or out respect to the `height_factor` and `width_factor`.
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomZoom
+
+random_zoom_layer = RandomZoom(0.4, 0.2)
+
+```
+
 ## RandomTranslation
 
 ## RandomContrast
