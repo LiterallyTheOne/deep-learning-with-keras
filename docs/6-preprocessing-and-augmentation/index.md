@@ -115,6 +115,22 @@ random_flip_layer = RandomFlip("horizontal")
 
 ## RandomRotation
 
+`RandomRotation`, rotates its input with the given factor.
+The range of the rotation would be: $[-factor * \pi, +factor * \pi]$  
+For example, if we put the factor to $0.2$, it would rotate the input in the range of
+$$[-0.2 * \pi, +0.2 * \pi]
+= [-0.2 * 180^\circ, 0.2 * 180^\circ]
+=\boxed{[-36^\circ, 36^\circ]}
+$$
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomRotation
+
+random_rotation_layer = RandomRotation(0.2)
+
+```
+
 ## RandomZoom
 
 ## RandomTranslation
