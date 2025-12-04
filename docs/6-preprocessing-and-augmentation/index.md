@@ -84,12 +84,67 @@ Result's min: 0.0
 """
 ```
 
+## Specific model preprocessing
+
+```python
+from keras.applications.mobilenet_v2 import preprocess_input
+
+input_image = np.random.randint(0, 256, (1, 224, 224, 3))
+
+result_image = preprocess_input(input_image)
+
+print(f"Input's max: {input_image.max()}")
+print(f"Input's min: {input_image.min()}")
+print(f"Result's max: {result_image.max()}")
+print(f"Result's min: {result_image.min()}")
+
+
+"""
+--------
+output: 
+
+Input's max: 255
+Input's min: 0
+Result's max: 1.0
+Result's min: -1.0
+"""
+
+```
+
+```python
+from keras.layers import Lambda
+
+input_image = np.random.randint(0, 256, (1, 224, 224, 3))
+input_image = np.array(input_image, dtype=float)
+
+preprocessing_layer = Lambda(preprocess_input)
+
+result_image = preprocessing_layer(input_image)
+
+print(f"Input's max: {input_image.max()}")
+print(f"Input's min: {input_image.min()}")
+print(f"Result's max: {result_image.max()}")
+print(f"Result's min: {result_image.min()}")
+
+
+"""
+--------
+output: 
+
+Input's max: 255.0
+Input's min: 0.0
+Result's max: 1.0
+Result's min: -1.0
+"""
+
+```
+
 ## Augmentation
 
 **Data Augmentation** is a technique in machine learning that artificially expands our training dataset by applying
 different transformations.
 **Data Augmentation** is extremely useful when we don't have enough data or our data is not balanced.
-It helps us with the generalization and prevents the model from overfitting.
+It helps us with the generalization and prevents the model from over-fitting.
 We have so many different **augmentation** techniques for different use-cases.
 Let's get to know how to use some of them in **Keras**.
 You can see the output of all the examples in
