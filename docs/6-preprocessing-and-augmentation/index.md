@@ -219,7 +219,7 @@ random_translation_layer = RandomTranslation(0.2, 0.2)
 ```
 
 > * Simulates small camera movements
-> * It is super important for the tasks that positon of the object doesn't matter
+> * It is super important for the tasks that position of the object doesn't matter
 
 ## RandomContrast
 
