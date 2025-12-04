@@ -115,7 +115,7 @@ random_flip_layer = RandomFlip("horizontal")
 
 ## RandomRotation
 
-`RandomRotation`, rotates its input with the given factor.
+`RandomRotation` rotates its input with the given factor.
 The range of the rotation would be: $[-factor * \pi, +factor * \pi]$  
 For example, if we put the factor to $0.2$, it would rotate the input in the range of
 $$[-0.2 * \pi, +0.2 * \pi]
@@ -133,7 +133,7 @@ random_rotation_layer = RandomRotation(0.2)
 
 ## RandomZoom
 
-`RandomZoom`, zooms in or out respect to the `height_factor` and `width_factor`.
+`RandomZoom` zooms in or out respect to the `height_factor` and `width_factor`.
 Here is an example of this layer:
 
 ```python
@@ -145,7 +145,7 @@ random_zoom_layer = RandomZoom(0.4, 0.2)
 
 ## RandomTranslation
 
-`RandomZoom`, moves the image respect to the `height_factor` and `width_factor`.
+`RandomZoom` moves the image respect to the `height_factor` and `width_factor`.
 Here is an example of this layer:
 
 ```python
