@@ -347,4 +347,13 @@ It might be too much for our model, which right now doesn't have so many paramet
 
 ## Your turn
 
+Now, choose the correct preprocessing and augmentation for your model and dataset and see the outputs.
+
 ## Conclusion
+
+In this tutorial, we have learned about preprocessing and augmentation.
+First, we explained about preprocessing and how to use them in **Keras**.
+Then, we explored three different preprocessors.
+After that, we explained about the data augmentations and their use-cases.
+We introduced some of the most important augmentation layers.
+Finally, we learned how to add these layers in our model.
