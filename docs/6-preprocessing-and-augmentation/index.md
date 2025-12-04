@@ -179,6 +179,16 @@ random_brightness_layer = RandomBrightness(0.1)
 
 ## RandomCrop
 
+`RandomCrop` crops to the given `height` and `width` randomly.
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomCrop
+
+random_crop_layer = RandomCrop(224, 224)
+
+```
+
 ## Your turn
 
 ## Conclusion
