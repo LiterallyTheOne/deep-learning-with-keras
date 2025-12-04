@@ -145,6 +145,16 @@ random_zoom_layer = RandomZoom(0.4, 0.2)
 
 ## RandomTranslation
 
+`RandomZoom`, moves the image respect to the `height_factor` and `width_factor`.
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomTranslation
+
+random_translation_layer = RandomTranslation(0.2, 0.2)
+
+```
+
 ## RandomContrast
 
 ## RandomBrightness
