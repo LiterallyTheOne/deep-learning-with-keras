@@ -86,6 +86,10 @@ Result's min: 0.0
 
 ## Specific model preprocessing
 
+Each model has its own preprocessing procedure.
+In **Keras** we can load and use them.
+Here is an example of the preprocessing for `MobileNetV2`.
+
 ```python
 from keras.applications.mobilenet_v2 import preprocess_input
 
@@ -110,6 +114,13 @@ Result's min: -1.0
 """
 
 ```
+
+As you can see, in the example above, the input is mapped to the range of $[-1.0, 1.0]$.
+This is the way **MobileNetV2** expects its input to be.
+If we want to use this preprocessing procedure in our model layers,
+we can use a layer called `Lambda`.
+`Lambda` takes a function, like `preprocess_input`, and turns it to a layer.
+Here is an example of how we can achieve that.
 
 ```python
 from keras.layers import Lambda
