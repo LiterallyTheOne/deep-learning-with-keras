@@ -211,11 +211,12 @@ random_crop_layer = RandomCrop(224, 224)
 
 ## Add preprocessing and augmentation layers to our model
 
+We should add our preprocessing and augmentation layers before feeding our
+data to the model.
+Here is an example:
+
 ```python
-base_model = MobileNetV2(include_top=False, input_shape=(224, 224, 3))
-
-base_model.trainable = False
-
+"""
 augmentation_layers = keras.Sequential(
     [
         layers.RandomFlip("horizontal"),
@@ -230,43 +231,37 @@ model = keras.Sequential(
     [
         layers.Input(shape=(3, 224, 224)),
         layers.Permute((2, 3, 1)),
-        layers.Lambda(preprocess_input),
+        layers.Rescaling(1.0 / 255),
         augmentation_layers,
+        layers.Lambda(preprocess_input),
         base_model,
         layers.Flatten(),
         layers.Dense(4, activation="softmax"),
     ]
 )
 
-model.compile(
-    optimizer="adam",
-    loss="sparse_categorical_crossentropy",
-    metrics=["accuracy"],
-)
 
-print(model.summary())
-
-
-"""
 --------
 output: 
 
-Model: "sequential_3"
+Model: "sequential_5"
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
 ┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ permute_1 (Permute)             │ (None, 224, 224, 3)    │             0 │
+│ permute_2 (Permute)             │ (None, 224, 224, 3)    │             0 │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ lambda_1 (Lambda)               │ (None, 224, 224, 3)    │             0 │
+│ rescaling (Rescaling)           │ (None, 224, 224, 3)    │             0 │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ sequential_2 (Sequential)       │ (None, 224, 224, 3)    │             0 │
+│ sequential_4 (Sequential)       │ (None, 224, 224, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ lambda (Lambda)                 │ (None, 224, 224, 3)    │             0 │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
 │ mobilenetv2_1.00_224            │ (None, 7, 7, 1280)     │     2,257,984 │
 │ (Functional)                    │                        │               │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ flatten_1 (Flatten)             │ (None, 62720)          │             0 │
+│ flatten_2 (Flatten)             │ (None, 62720)          │             0 │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_1 (Dense)                 │ (None, 4)              │       250,884 │
+│ dense_2 (Dense)                 │ (None, 4)              │       250,884 │
 └─────────────────────────────────┴────────────────────────┴───────────────┘
  Total params: 2,508,868 (9.57 MB)
  Trainable params: 250,884 (980.02 KB)
@@ -274,6 +269,15 @@ Model: "sequential_3"
 
 """
 ```
+
+In the example above, we have defined a `Sequential` to add our augmentation
+layers.
+Our augmentation layers consists of filliping, zooming, translation, and rotation.
+We also added the preprocess unit and rescaling.
+
+We should always consider not over stack these layers.
+In this example, we only wanted to show you how we can add multiple augmentation layers.
+It might be too much for our model, which right now doesn't have so many parameters to learn.
 
 ## Your turn
 
