@@ -113,6 +113,9 @@ random_flip_layer = RandomFlip("horizontal")
 
 ```
 
+> * The most common rotation is horizontal
+> * Use it when left and right rotation doesn't matter
+
 ## RandomRotation
 
 `RandomRotation` rotates its input with the given factor.
@@ -131,6 +134,8 @@ random_rotation_layer = RandomRotation(0.2)
 
 ```
 
+> * Make your model robust to the rotation
+
 ## RandomZoom
 
 `RandomZoom` zooms in or out respect to the `height_factor` and `width_factor`.
@@ -142,6 +147,9 @@ from keras.layers import RandomZoom
 random_zoom_layer = RandomZoom(0.4, 0.2)
 
 ```
+
+> * Helps the model to handle scale changes
+> * Super effective in classification problems
 
 ## RandomTranslation
 
@@ -155,6 +163,9 @@ random_translation_layer = RandomTranslation(0.2, 0.2)
 
 ```
 
+> * Simulates small camera movements
+> * It is super important for the tasks that positon of the object doesn't matter
+
 ## RandomContrast
 
 `RandomContrast` changes the contrast respect to the given `factor`.
@@ -165,6 +176,9 @@ from keras.layers import RandomContrast
 
 random_contrast_layer = RandomContrast(0.4)
 ```
+
+* Helps us with the different lightning setups
+* Useful in outdoor scenes and natural environments
 
 ## RandomBrightness
 
@@ -177,6 +191,9 @@ from keras.layers import RandomBrightness
 random_brightness_layer = RandomBrightness(0.1)
 ```
 
+* Helps us with the different lightning environments
+* Specially data's taken in the different times of the day in the nature
+
 ## RandomCrop
 
 `RandomCrop` crops to the given `height` and `width` randomly.
@@ -188,6 +205,9 @@ from keras.layers import RandomCrop
 random_crop_layer = RandomCrop(224, 224)
 
 ```
+
+* Simulates random object placements
+* Extremely useful in large-scale training
 
 ## Your turn
 
