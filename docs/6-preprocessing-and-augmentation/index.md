@@ -168,6 +168,15 @@ random_contrast_layer = RandomContrast(0.4)
 
 ## RandomBrightness
 
+`RandomBrightness` changes the brightness respect to the given `factor`.
+Here is an example of this layer:
+
+```python
+from keras.layers import RandomBrightness
+
+random_brightness_layer = RandomBrightness(0.1)
+```
+
 ## RandomCrop
 
 ## Your turn
