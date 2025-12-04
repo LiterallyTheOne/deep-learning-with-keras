@@ -1,6 +1,6 @@
 ---
 date: '2025-12-02T08:27:00+03:30'
-draft: true
+draft: false
 title: 'Preprocessing and Data Augmentation'
 description: "A Tutorial about the concept of preprocessing and data augmentation in Keras"
 weight: 80
