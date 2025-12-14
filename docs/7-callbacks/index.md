@@ -113,4 +113,10 @@ model.load_weights("checkpoints/best_model.weights.h5")
 
 ## Your turn
 
+Add `EarlyStoppin` and `ModelCheckpoint` to your callbacks.
+
 ## Conclusion
+
+In this tutorial, we learned about **Callbacks** in **Keras**.
+First, we explained about what callbacks are actually are.
+Then, we introduced two of the most important callbacks, `EarlyStopping` and `ModelCheckpoint`.
