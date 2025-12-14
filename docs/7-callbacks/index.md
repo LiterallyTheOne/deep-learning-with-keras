@@ -1,5 +1,5 @@
 ---
-date: '2025-11-26T08:33:00+03:30'
+date: '2025-12-14T09:18:00+03:30'
 draft: true
 title: 'Callbacks'
 description: "A tutorial about the callbacks in Keras, including Early Stopping and Model Checkpoint"
@@ -12,6 +12,9 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 # Callbacks
 
 ## Introduction
+
+In the previous tutorial, we have learned about **preprocessing and data augmentation** techniques in Keras.
+In this tutorial, we learn about **Callbacks** and explore some of the most important ones in **Keras**.
 
 ## Early Stopping
 
