@@ -1,6 +1,6 @@
 ---
 date: '2025-12-14T09:18:00+03:30'
-draft: true
+draft: false
 title: 'Callbacks'
 description: "A tutorial about the callbacks in Keras, including Early Stopping and Model Checkpoint"
 weight: 80
