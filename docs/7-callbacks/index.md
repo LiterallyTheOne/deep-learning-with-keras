@@ -53,7 +53,6 @@ early_stopping = EarlyStopping(
     verbose=1,
 )
 
-
 history = model.fit(
     ...,
     epochs=200,
@@ -69,6 +68,46 @@ Also, we set the `verbose` to `1`, to be able to have a report of the procedure.
 As you can see, we have added it to our callbacks argument in `fit` function and increased our `epochs` to `200`.
 
 ## Model Checkpoint
+
+**ModelCheckpoint** saves the model during the training.
+Here is an example of **ModelCheckpoint**.
+
+```python
+from keras.callbacks import ModelCheckpoint
+
+model_checkpoint = ModelCheckpoint(
+    filepath="checkpoints/best_model.weights.h5",
+    monitor="val_loss",
+    save_best_only=True,
+    save_weights_only=True,
+    verbose=1,
+)
+
+history = model.fit(
+    ...,
+    callbacks=[tensorboard_callback, early_stopping, model_checkpoint],
+)
+
+```
+
+In the example above, we created an object of `ModelCheckpoint`.
+At first, we defined the path of the file, that we want to save our model.
+By the `monitor` argument, we said our object to look out for validation loss (`val_loss`).
+Then, we said, we only want to save the best model by using `save_best_only=True`.
+This approach helps the model not to save the model after each epoch and only saves the best one.
+After that, we set `save_weight_only=True`.
+This argument helps us to save only the weights of our model, not the way that we have compiled or other
+characteristics.
+When we do that, the capacity of the saved model decreases, and we can load our model in multiple platforms, not
+the specific one that we have trained our model on it.
+If we set this argument, we should make sure that the name of our `filepath` ends with `.weights.h5.`
+Then, we set `verbose=1` to have a report of what is happening.
+
+If we want to load the best weights that we have saved, we can use the code below:
+
+```python
+model.load_weights("checkpoints/best_model.weights.h5")
+```
 
 ## Your turn
 
