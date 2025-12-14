@@ -24,13 +24,16 @@ We have learned about **TensorBoard Callback** before.
 We used to create a **TensorBoard Callback** and pass it to our fit function as below:
 
 ```python
+from keras.callbacks import TensorBoard
+
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir)
+tensorboard_callback = TensorBoard(log_dir=log_dir)
 
 history = model.fit(
     ...,
     callbacks=[tensorboard_callback],
 )
+
 ```
 
 In this tutorial, we are going to learn about another two important **CallBacks**,
