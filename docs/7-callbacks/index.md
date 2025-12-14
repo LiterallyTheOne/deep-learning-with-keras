@@ -39,6 +39,8 @@ history = model.fit(
 In this tutorial, we are going to learn about another two important **CallBacks**,
 called: **EarlyStopping** and **ModelCheckpoint**.
 
+> [List of available callbacks in Keras](https://keras.io/api/callbacks/)
+
 ## Early Stopping
 
 **EarlyStopping** is a callback that stops the training procedure if there is no improvement.
