@@ -13,7 +13,7 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 
 ## Introduction
 
-In the previous tutorials, we learned about transfer learning and how to use the advantage of
+In the previous tutorials, we learned about **transfer learning** and how to use the advantage of
 a pre-trained model on our dataset.
 In this Tutorial, we learn about how to apply fine-tuning and see the results.
 Also, we introduce how to use other platforms like [Kaggle models](https://www.kaggle.com/models/)
