@@ -19,6 +19,12 @@ In this Tutorial, we learn about how to apply fine-tuning and see the results.
 Also, we introduce how to use other platforms like [Kaggle models](https://www.kaggle.com/models/)
 to access to new models.
 
+## Fine-tuning
+
+## Kaggle models
+
+## Share your model
+
 ## Your turn
 
 ## Conclusion
