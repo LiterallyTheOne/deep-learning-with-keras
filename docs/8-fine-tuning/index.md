@@ -68,6 +68,23 @@ Sometimes, we haven't chosen the correct input features required for understandi
 For example, if we want to estimate the house price, and we don't have the size of the house, our model
 is not going to figure out the pattern.
 
+## Overfitting
+
+**Overfitting** happens when our model is doing well on training data but the results on unseen data
+(**Validation** and **Test**) are not good.
+In other words, model has understood the pattern so well (including the noise), but it fails to generalize.
+There are some reasons that might be the cause of **Overfitting**.
+One of the most important ones is that our model is too complex for the dataset that we have.
+To fix this problem, we should choose a simpler model or lower the number of trainable layers.
+
+Another reason is that, we train our model for a long time.
+To solve this problem, we said that we can use **EarlyStopping**.
+
+One of the other reasons is that, we don't use enough regularization.
+For example, if our data is the images taken on the nature with so many different contrast and brightness,
+it is expected that our unseen data is also has this differences.
+So, if we want our model to learn how to deal with them, we should use the respective **Augmentation**.
+
 ## Kaggle models
 
 ## Share your model
