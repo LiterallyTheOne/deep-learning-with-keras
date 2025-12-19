@@ -85,6 +85,8 @@ For example, if our data is the images taken on the nature with so many differen
 it is expected that our unseen data is also has this differences.
 So, if we want our model to learn how to deal with them, we should use the respective **Augmentation**.
 
+## Make our model more generalized
+
 ## Kaggle models
 
 ## Share your model
