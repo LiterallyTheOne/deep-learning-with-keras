@@ -55,9 +55,9 @@ The only thing that we should do, is to train our model like before.
 ## Underfitting
 
 **Underfitting** happens when our model is not training well on our **training data**.
+In other words, our model is not capable of learning the pattern of our data.
 There are different reasons that might cause this phenomenon to happen.
 One of the most important ones is that our model is too simple for the problem that we have.
-In other words, our model is not capable of learning the pattern of our data.
 To solve this problem, we should choose a more complex model with more trainable layers.
 
 Another reason behind **Underfitting**, is that we used too much **Regularization**.
