@@ -52,6 +52,22 @@ output:
 As you can see, the last $5$ layers, are trainable.
 The only thing that we should do, is to train our model like before.
 
+## Underfitting
+
+**Underfitting** happens when our model is not training well on our **training data**.
+There are different reasons that might cause this phenomenon to happen.
+One of the most important ones is that our model is too simple for the problem that we have.
+In other words, our model is not capable of learning the pattern of our data.
+To solve this problem, we should choose a more complex model with more trainable layers.
+
+Another reason behind **Underfitting**, is that we used too much **Regularization**.
+For example, we have used so many **Augmentation** layers.
+To solve it, we should just choose the suited **Regularization** techniques.
+
+Sometimes, we haven't chosen the correct input features required for understanding the pattern.
+For example, if we want to estimate the house price, and we don't have the size of the house, our model
+is not going to figure out the pattern.
+
 ## Kaggle models
 
 ## Share your model
