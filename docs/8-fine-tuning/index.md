@@ -16,8 +16,8 @@ code: "https://github.com/LiterallyTheOne/deep-learning-with-keras/blob/master/s
 In the previous tutorials, we learned about **transfer learning** and how to use the advantage of
 a pre-trained model on our dataset.
 In this Tutorial, we learn about how to apply fine-tuning and see the results.
-Also, we introduce how to use other platforms like [Kaggle models](https://www.kaggle.com/models/)
-to access to new models.
+Also, we explain the concepts of **Underfitting** and **Overfitting** and how to solve them.
+Finally, we make more classification layer more generalized.
 
 ## Fine-tuning
 
