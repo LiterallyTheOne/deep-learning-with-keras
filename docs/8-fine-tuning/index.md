@@ -87,6 +87,31 @@ So, if we want our model to learn how to deal with them, we should use the respe
 
 ## Make our classification layer more generalized
 
+In the previous tutorials, we only used a **Fully Connected** layer for our **Classification layer**.
+Now, let's change the **Classification layer** based on the things that we learned.
+Here is an example:
+
+```python
+model = keras.Sequential(
+    [
+        ...,
+        layers.GlobalAveragePooling2D(),
+        layers.Dropout(0.5),
+        layers.Dense(128, activation="relu"),
+        layers.Dropout(0.5),
+        layers.Dense(4, activation="softmax"),
+    ]
+)
+```
+
+As you can see, in the code above, at first, I used a `GlobalAveragePooling2D` instead of `Flatten`.
+It helps the model to be more generalized.
+Then I used a `dropout` layer.
+This layer helps to have more generalization.
+Instead of using only one layer, I have used 2 layers.
+The first layer has $128$ neurons with the activation of `relu` and the other layer has $4$ neurons with the
+activation of `softmax` in order to guess the classification.
+
 ## Kaggle models
 
 ## Share your model
