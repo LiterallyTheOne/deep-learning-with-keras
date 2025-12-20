@@ -1,6 +1,6 @@
 ---
-date: '2025-11-26T08:35:00+03:30'
-draft: True
+date: '2025-12-20T08:35:00+03:30'
+draft: False
 title: "Fine-tuning"
 description: "A tutorial about how to apply fine-tuning"
 weight: 90
