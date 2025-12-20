@@ -31,11 +31,12 @@ Here is an example:
 ```python
 base_model = MobileNetV2(include_top=False, input_shape=(224, 224, 3))
 
-for layer in base_model.layers[:-5]:
+for layer in base_model.layers[:-4]:
     layer.trainable = False
+
 ```
 
-In the code above, we froze the starting layers of our `base_model` and left the last $5$ layers as `trainable`.
+In the code above, we froze the starting layers of our `base_model` and left the last $4$ layers as `trainable`.
 Now, let's print the `base_model` summary with `show_trainable=True` like below:
 
 ```python
@@ -44,6 +45,28 @@ print(base_model.summary(show_trainable=True))
 """
 --------
 output: 
+
+  ...
+├───────────────────┼─────────────────┼───────────┼────────────────┼───────┤
+| block_16_project  │ (None, 7, 7,    │   307,200 │ block_16_dept… │   N   │
+│ (Conv2D)          │ 320)            │           │                │       │
+├───────────────────┼─────────────────┼───────────┼────────────────┼───────┤
+| block_16_project… │ (None, 7, 7,    │     1,280 │ block_16_proj… │   Y   │
+│ (BatchNormalizat… │ 320)            │           │                │       │
+├───────────────────┼─────────────────┼───────────┼────────────────┼───────┤
+│ Conv_1 (Conv2D)   │ (None, 7, 7,    │   409,600 │ block_16_proj… │   Y   │
+│                   │ 1280)           │           │                │       │
+├───────────────────┼─────────────────┼───────────┼────────────────┼───────┤
+│ Conv_1_bn         │ (None, 7, 7,    │     5,120 │ Conv_1[0][0]   │   Y   │
+│ (BatchNormalizat… │ 1280)           │           │                │       │
+├───────────────────┼─────────────────┼───────────┼────────────────┼───────┤
+│ out_relu (ReLU)   │ (None, 7, 7,    │         0 │ Conv_1_bn[0][… │   -   │
+│                   │ 1280)           │           │                │       │
+└───────────────────┴─────────────────┴───────────┴────────────────┴───────┘
+
+Total params: 2,257,984 (8.61 MB)
+Trainable params: 412,800 (1.57 MB)
+Non-trainable params: 1,845,184 (7.04 MB)
 
 """
 
