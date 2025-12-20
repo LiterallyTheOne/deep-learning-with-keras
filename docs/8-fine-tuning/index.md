@@ -137,4 +137,6 @@ activation of `softmax` in order to guess the classification.
 
 ## Your turn
 
+Now, Change the **transfer learning** to **fine-tuning** and make your classification layer more generalized.
+
 ## Conclusion
