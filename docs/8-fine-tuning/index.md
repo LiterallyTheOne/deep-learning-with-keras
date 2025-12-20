@@ -72,7 +72,7 @@ Non-trainable params: 1,845,184 (7.04 MB)
 
 ```
 
-As you can see, the last $5$ layers, are trainable.
+As you can see, the last $4$ layers, are trainable.
 The only thing that we should do, is to train our model like before.
 
 ## Underfitting
@@ -134,10 +134,6 @@ This layer helps to have more generalization.
 Instead of using only one layer, I have used 2 layers.
 The first layer has $128$ neurons with the activation of `relu` and the other layer has $4$ neurons with the
 activation of `softmax` in order to guess the classification.
-
-## Kaggle models
-
-## Share your model
 
 ## Your turn
 
