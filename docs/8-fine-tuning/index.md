@@ -140,3 +140,7 @@ activation of `softmax` in order to guess the classification.
 Now, Change the **transfer learning** to **fine-tuning** and make your classification layer more generalized.
 
 ## Conclusion
+
+In this Tutorial, at first, we explained how we can apply **fine-tuning**.
+Then, we described **Underfitting** and **Overfitting** and how to solve them.
+Finally, we made our classification layer more generalized.
