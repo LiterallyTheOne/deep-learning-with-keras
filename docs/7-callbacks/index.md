@@ -52,6 +52,7 @@ from keras.callbacks import EarlyStopping
 early_stopping = EarlyStopping(
     monitor="val_loss",
     patience=5,
+    restore_best_weights=True,
     verbose=1,
 )
 
@@ -65,7 +66,9 @@ history = model.fit(
 
 In the code above, we have created an object of **EarlyStopping**.
 We set our **EarlyStopping** to monitor our validation loss (`"val_loss"`).
-Then, we told it to wait for 5 epochs, if there was no improvement seen on those epochs, stop the training.
+Then, we told it to wait for $5$ epochs, if there was no improvement seen on those epochs, stop the training.
+With `restore_best_weights` set to `True`, **Keras** will load the best weights of the model
+that has the lowest `val_loss`.
 Also, we set the `verbose` to `1`, to be able to have a report of the procedure.
 As you can see, we have added it to our callbacks argument in `fit` function and increased our `epochs` to `200`.
 
