@@ -291,6 +291,48 @@ run to see the results.
 Also, for each run, results of train and validation are being stored separately.
 We can choose one of them to see its result.
 
+## Load tensorboard files in python
+
+There are sometimes that we want to create clean figures of our training procedure in python.
+In order to do so, we can use our **Tensorboard** logs.
+They already have the training information that we wanted.
+To load and use them the most straight forward method, is by using a package called `tbparse`.
+To use it, we can use the code below:
+
+```python
+from tbparse import SummaryReader
+
+log_dir = "your/log/dir"
+
+reader = SummaryReader(log_dir)
+df = reader.tensors
+
+loss = df[df["tag"] == "epoch_loss"]
+accuracy = df[df["tag"] == "epoch_accuracy"]
+```
+
+In the code above, first we imported `SummaryReader`.
+Then we created a `SummaryReader` object with the given `log_dir`.
+Because we used **PyTorch**, as our backend, our data is stored in `tensors`.
+So, we put them in a variable called `df`.
+To get the `loss`, we only should get the data which their tag is `epoch_loss`.
+And for the `accuracy`, we have a tag called `epoch_accuracy`.
+
+Now, we can plot them simply.
+Here is an example of plotting the loss of loaded **Tensorboard** log.
+
+```python
+from matplotlib import pyplot as plt
+
+plt.figure()
+plt.title("loss")
+plt.plot(loss["step"], loss["value"], label="training loss")
+
+```
+
+We can also, load multiple **Tensorboard** logs and plot them together.
+You can find an example in the code that we provided in **GitHub**. (link to the code can be found in the page)
+
 ## Your turn
 
 * Draw accuracy and loss plots
