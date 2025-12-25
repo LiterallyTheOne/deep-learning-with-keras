@@ -32,6 +32,8 @@ By LiterallyTheOne
 * Previous Tutorial: Preprocessing and Data Augmentation
 * This Tutorial: Callbacks
 
+---
+
 ## Link to the tutorial and materials
 
 ![w:400](qr-code-1.webp)
