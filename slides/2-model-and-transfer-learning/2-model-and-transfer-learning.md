@@ -478,9 +478,9 @@ accuracy: 0.4844606816768646
 ## Your Turn
 
 <style scoped>
-  {
-    font-size: 30px; /* Adjust this value to your desired size */
-  }
+section {
+  font-size: 30px;
+}
 </style>
 
 * Load your dataset in 3 subsets: **train**, **validation**, and **test**.
