@@ -1,7 +1,6 @@
 ---
 marp: true
 theme: uncover
-class: invert
 footer: By Ramin Zarebidoky (LiterallyTheOne)
 header: Deep Learning with Keras Tutorial, Model and Transfer Learning
 size: 16:9
