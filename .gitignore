@@ -4,4 +4,6 @@ logs/
 .ipynb_checkpoints/
 checkpoints/
 
+slides/**/*.html
+
 .DS_Store
